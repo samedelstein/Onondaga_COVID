@@ -1,12 +1,18 @@
+setwd("~/Onondaga_COVID")
 library(tidyverse)
 library(ggplot2)
 library(gridExtra)
-
+library(zoo)
 
 df <- read.csv("https://health.data.ny.gov/api/views/xdss-u53e/rows.csv?accessType=DOWNLOAD", stringsAsFactors = FALSE)
 
-head(df)
-ggplot(df, aes(Test.Date, Cumulative.Number.of.Positives, group = County)) +
+Cumulative_Positives_State <- ggplot(df, aes(Test.Date, Cumulative.Number.of.Positives, group = County)) +
+  geom_line(color = "grey") +
+  geom_line(data = filter(df, County == "Onondaga"), aes(Test.Date, Cumulative.Number.of.Positives, group = County), color = "red")+
+  #scale_y_log10()+
+  ggthemes::theme_fivethirtyeight()
+
+Cumulative_Tests_State <- ggplot(df, aes(Test.Date, Cumulative.Number.of.Tests.Performed, group = County)) +
   geom_line(color = "grey") +
   geom_line(data = filter(df, County == "Onondaga"), aes(Test.Date, Cumulative.Number.of.Tests.Performed, group = County), color = "red")+
   #scale_y_log10()+
@@ -21,6 +27,15 @@ x <- df %>%
          Three.Day.Percentage = round(((Cumulative.Number.of.Positives - lag(Cumulative.Number.of.Positives, 4))/lag(Cumulative.Number.of.Positives, 4))*100),
          Last.28.Days = Cumulative.Number.of.Positives - lag(Cumulative.Number.of.Positives,29),
          Last.14.Days = Cumulative.Number.of.Positives - lag(Cumulative.Number.of.Positives,15),
+         Last.7.Days = Cumulative.Number.of.Positives - lag(Cumulative.Number.of.Positives,8),
+         Last.7.Days.Mean = (New.Positives 
+                             + lag(New.Positives, 1) 
+                             + lag(New.Positives, 2) 
+                             + lag(New.Positives, 3) 
+                             + lag(New.Positives, 4)
+                             + lag(New.Positives, 5)
+                             + lag(New.Positives, 6))/7,
+         Positive.Per.100000 = (Last.7.Days.Mean*100000)/460528,
          Percent.Positive = round((New.Positives/Total.Number.of.Tests.Performed)*100),
          Total.Percent.Positive = round((Cumulative.Number.of.Positives/Cumulative.Number.of.Tests.Performed)*100),
          Three.Day.Percent.Positive = round(((New.Positives + lag(New.Positives, 1) + lag(New.Positives, 2)) / (Total.Number.of.Tests.Performed + lag(Total.Number.of.Tests.Performed,1) + lag(Total.Number.of.Tests.Performed,2))*100)),
@@ -29,17 +44,23 @@ x <- df %>%
          Three.Day.Change.Tests = Cumulative.Number.of.Tests.Performed - lag(Cumulative.Number.of.Tests.Performed, 4),
          Three.Day.Percentage.Tests = round(((Cumulative.Number.of.Tests.Performed - lag(Cumulative.Number.of.Tests.Performed, 4))/lag(Cumulative.Number.of.Tests.Performed, 4))*100),
          Last.28.Days.Tests = Cumulative.Number.of.Tests.Performed - lag(Cumulative.Number.of.Tests.Performed,29),
-         Last.14.Days.Tests = Cumulative.Number.of.Tests.Performed - lag(Cumulative.Number.of.Tests.Performed,15))
+         Last.14.Days.Tests = Cumulative.Number.of.Tests.Performed - lag(Cumulative.Number.of.Tests.Performed,15),
+         Last.7.Days.Tests = Cumulative.Number.of.Tests.Performed - lag(Cumulative.Number.of.Tests.Performed,8))
+
 
 colors_Total <- c(
-  'Cumulative.Number.of.Positives' = 'steelblue',
-  'Last.14.Days' = 'black',
-  'New.Positives' = 'orange')
+  'Cumulative.Number.of.Positives' = '#d7191c',
+  'New.Positives' = '#fdae61',
+  'Rolling.Average.7.Day.Positives' = '#7b3294',
+  'Total.Cases.Last.7.Days' = '#2c7bb6')
 
 ggPositive <- ggplot(x) +
+  geom_hline(aes(yintercept = max(New.Positives, na.rm = TRUE)), alpha = .5, color = 'black', linetype = 'dashed') +
+  geom_hline(aes(yintercept = max(Last.7.Days, na.rm = TRUE)),alpha = .5, color = 'black', linetype = 'dashed') +
   geom_line(aes(Test.Date, Cumulative.Number.of.Positives, group = 1, color = "Cumulative.Number.of.Positives")) +
-  geom_line(aes(Test.Date, Last.14.Days, group = 1, color = "Last.14.Days"))  +
-  geom_line(aes(Test.Date, New.Positives, group = 1, color="New.Positives")) +
+  geom_line(aes(Test.Date, Last.7.Days, group = 1, color = "Total.Cases.Last.7.Days"))  +
+  geom_col(aes(Test.Date, New.Positives, group = 1, fill='New.Positives')) +
+  #geom_line(aes(Test.Date, Last.7.Days.Mean, group = 1), color = 'black') +
   labs(title = "Positive Tests in Onondaga County",
        subtitle = paste("Data as of", max(x$Test.Date), sep = " "),
        caption = "Source: data.ny.gov",
@@ -47,18 +68,44 @@ ggPositive <- ggplot(x) +
        y = "Confirmed Cases",
        color = '') +
   scale_color_manual(values = colors_Total) +
+  scale_fill_manual(values = colors_Total) +
   scale_x_date(date_breaks = "1 week", date_labels = "%m/%d") +
   ggthemes::theme_economist() +
-  theme(axis.text.x = element_text(angle = 90))
+  theme(axis.text.x = element_text(angle = 90))+
+  theme(legend.title = element_blank())
+ggsave("/Users/samedelstein/Onondaga_COVID/Positive Tests in Onondaga County.jpg", plot = ggPositive)
+
+ggPositiveLast30 <- ggplot(filter(x, Test.Date > Sys.Date() -30)) +
+  geom_hline(aes(yintercept = max(New.Positives, na.rm = TRUE)), alpha = .5, color = 'purple', linetype = 'dashed') +
+  geom_hline(aes(yintercept = max(Last.7.Days, na.rm = TRUE)),alpha = .5, color = 'black', linetype = 'dashed') +
+  #geom_line(aes(Test.Date, Cumulative.Number.of.Positives, group = 1, color = "Cumulative.Number.of.Positives")) +
+  geom_line(aes(Test.Date, Last.7.Days, group = 1, color = "Total.Cases.Last.7.Days"))  +
+  geom_col(aes(Test.Date, New.Positives, group = 1, fill='New.Positives')) +
+  geom_line(aes(Test.Date, Last.7.Days.Mean, group = 1, color = 'Rolling.Average.7.Day.Positives')) +
+  labs(title = "Positive Tests in Onondaga County Last 30 Days",
+       subtitle = paste("Data as of", max(x$Test.Date), sep = " "),
+       caption = "Source: data.ny.gov",
+       x = "",
+       y = "Confirmed Cases",
+       color = '') +
+  scale_color_manual(values = colors_Total) +
+  scale_fill_manual(values = colors_Total) +
+  scale_x_date(date_breaks = "1 week", date_labels = "%m/%d") +
+  ggthemes::theme_economist() +
+  theme(axis.text.x = element_text(angle = 90)) +
+  theme(legend.title = element_blank())
+ggsave("/Users/samedelstein/Onondaga_COVID/Positive Tests in Onondaga County Last 30 Days.jpg", plot = ggPositiveLast30)
+
 
 colors_Tests <- c(
-  'Cumulative.Number.of.Tests.Performed' = 'steelblue',
-  'Last.14.Days.Tests' = 'black',
-  'Total.Number.of.Tests.Performed' = 'orange')
+  'Cumulative.Number.of.Tests.Performed' = '#fdae61',
+  'Last.7.Days.Tests' = '#7b3294',
+  'Total.Number.of.Tests.Performed' = '#2c7bb6')
+
 
 ggTests <- ggplot(x) +
   geom_line(aes(Test.Date, Cumulative.Number.of.Tests.Performed, group = 1, color = "Cumulative.Number.of.Tests.Performed")) +
-  geom_line(aes(Test.Date, Last.14.Days.Tests, group = 1, color = "Last.14.Days.Tests"))  +
+  geom_line(aes(Test.Date, Last.7.Days.Tests, group = 1, color = "Last.7.Days.Tests"))  +
   geom_line(aes(Test.Date, Total.Number.of.Tests.Performed, group = 1, color="Total.Number.of.Tests.Performed")) +
   labs(title = "Tests Performed in Onondaga County",
        subtitle = paste("Data as of", max(x$Test.Date), sep = " "),
@@ -70,11 +117,13 @@ ggTests <- ggplot(x) +
   scale_color_manual(values = colors_Tests) +
   ggthemes::theme_economist() +
   theme(axis.text.x = element_text(angle = 90))
+ggsave("/Users/samedelstein/Onondaga_COVID/Tests Performed in Onondaga County.jpg", plot = ggTests)
+
 
 colors_Percent <- c(
-  'Total.Percent.Positive' = 'steelblue',
-  'Three.Day.Percent.Positive' = 'black',
-  'Percent.Positive' = 'orange')
+  'Total.Percent.Positive' = '#fdae61',
+  'Three.Day.Percent.Positive' = '#7b3294',
+  'Percent.Positive' = '#2c7bb6')
 
 ggPercent <- ggplot(x) +
   geom_line(aes(Test.Date, Three.Day.Percent.Positive, group = 1, color = "Three.Day.Percent.Positive")) +
@@ -90,6 +139,48 @@ ggPercent <- ggplot(x) +
   scale_color_manual(values = colors_Percent) +
   ggthemes::theme_economist() +
   theme(axis.text.x = element_text(angle = 90))
+ggsave("/Users/samedelstein/Onondaga_COVID/Percent Positive Cases in Onondaga County.jpg", plot = ggPercent)
 
-grid.arrange(ggPositive, ggTests, ggPercent, nrow = 2)
+
+colors_Positives <- c(
+  'Rolling.7.Day.Positives' = '#fdae61',
+  'New.Daily.Positives' = '#7b3294')
+
+Rolling.7.Day <- ggplot(x) +
+  geom_col(aes(Test.Date, New.Positives, group = 1, fill='New.Daily.Positives')) +
+  geom_line(aes(Test.Date, Last.7.Days.Mean, group = 1, color = 'Rolling.7.Day.Positives'), size = 2) +
+  geom_hline(aes(yintercept = max(Last.7.Days.Mean, na.rm = TRUE)), alpha = .5, color = 'red', linetype = 'dashed') +
+  labs(title = "Positive Tests in Onondaga County with Rolling Average",
+       subtitle = paste("Data as of", max(x$Test.Date), sep = " "),
+       caption = "Source: data.ny.gov",
+       x = "",
+       y = "Confirmed Cases",
+       color = '') +
+  scale_x_date(date_breaks = "1 week", date_labels = "%m/%d") +
+  scale_color_manual(values = colors_Positives) +
+  scale_fill_manual(values = colors_Positives) +
+  ggthemes::theme_economist() +
+  theme(axis.text.x = element_text(angle = 90)) +
+  theme(legend.title = element_blank())
+ggsave("/Users/samedelstein/Onondaga_COVID/Positive Tests in Onondaga County with Rolling Average.jpg", plot = Rolling.7.Day)
+
+
+Per.100000 <- ggplot(x) +
+  geom_hline(aes(yintercept = 10), alpha = .7, color = 'red', linetype = 'dashed') +
+  geom_line(aes(Test.Date, Positive.Per.100000, group = 1)) +
+  ggthemes::theme_economist() +
+  theme(axis.text.x = element_text(angle = 90)) +
+  labs(title = "Positive Cases per 100,000 People in Onondaga County",
+       subtitle = paste("Data as of", max(x$Test.Date), sep = " "),
+       caption = "Source: data.ny.gov",
+       x = "",
+       y = "Confirmed Cases",
+       color = '') +
+  scale_x_date(date_breaks = "1 week", date_labels = "%m/%d") +
+  scale_color_manual(values = colors_Positives) +
+  scale_fill_manual(values = colors_Positives) +
+  ggthemes::theme_economist() +
+  theme(axis.text.x = element_text(angle = 90))
+ggsave("/Users/samedelstein/Onondaga_COVID/Positive Cases per 100,000 People in Onondaga County.jpg", plot = Per.100000)
+
 
