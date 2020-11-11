@@ -25,4 +25,4 @@ df$Baseline <- gsub("\\", "", df$Baseline,  fixed = TRUE)
 
 df$Date <- as.Date(df$Date, "%m/%d/%y")
 
-write.csv(df, "Onondaga_County_Hospitalizations.csv", row.names = FALSE)
+write.csv(df, "data/Onondaga_County_Hospitalizations.csv", row.names = FALSE)
