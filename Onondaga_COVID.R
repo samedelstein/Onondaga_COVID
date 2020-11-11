@@ -17,36 +17,35 @@ Cumulative_Tests_State <- ggplot(df, aes(Test.Date, Cumulative.Number.of.Tests.P
   geom_line(data = filter(df, County == "Onondaga"), aes(Test.Date, Cumulative.Number.of.Tests.Performed, group = County), color = "red")+
   #scale_y_log10()+
   ggthemes::theme_fivethirtyeight()
-
+tail(x)
 x <- df %>%
   filter(County == "Onondaga") %>%
   mutate(Test.Date = as.Date(Test.Date, "%m/%d/%Y"),
          Percent.Change = round(((Cumulative.Number.of.Positives - lag(Cumulative.Number.of.Positives, 1) )/lag(Cumulative.Number.of.Positives, 1))*100),
          Three.Day.Average = (Cumulative.Number.of.Positives + lag(Cumulative.Number.of.Positives, 1) + lag(Cumulative.Number.of.Positives, 2))/3,
          Three.Day.Change = Cumulative.Number.of.Positives - lag(Cumulative.Number.of.Positives, 4),
-         Three.Day.Percentage = round(((Cumulative.Number.of.Positives - lag(Cumulative.Number.of.Positives, 4))/lag(Cumulative.Number.of.Positives, 4))*100),
-         Last.28.Days = Cumulative.Number.of.Positives - lag(Cumulative.Number.of.Positives,29),
-         Last.14.Days = Cumulative.Number.of.Positives - lag(Cumulative.Number.of.Positives,15),
-         Last.7.Days = Cumulative.Number.of.Positives - lag(Cumulative.Number.of.Positives,8),
-         Last.7.Days.Mean = (New.Positives 
-                             + lag(New.Positives, 1) 
-                             + lag(New.Positives, 2) 
-                             + lag(New.Positives, 3) 
-                             + lag(New.Positives, 4)
-                             + lag(New.Positives, 5)
-                             + lag(New.Positives, 6))/7,
-         Positive.Per.100000 = (Last.7.Days.Mean*100000)/460528,
+         Three.Day.Percentage = round(((Cumulative.Number.of.Positives - lag(Cumulative.Number.of.Positives, 3))/lag(Cumulative.Number.of.Positives, 3))*100),
+         Last.28.Days = Cumulative.Number.of.Positives - lag(Cumulative.Number.of.Positives,28),
+         Last.14.Days = Cumulative.Number.of.Positives - lag(Cumulative.Number.of.Positives,14),
+         Last.7.Days = Cumulative.Number.of.Positives - lag(Cumulative.Number.of.Positives,7),
+         Last.7.Days.Mean = (Cumulative.Number.of.Positives - lag(Cumulative.Number.of.Positives,7))/7,
+         Positive.Per.100000 = (Last.7.Days.Mean/460528)*100000,
          Percent.Positive = round((New.Positives/Total.Number.of.Tests.Performed)*100),
          Total.Percent.Positive = round((Cumulative.Number.of.Positives/Cumulative.Number.of.Tests.Performed)*100),
          Three.Day.Percent.Positive = round(((New.Positives + lag(New.Positives, 1) + lag(New.Positives, 2)) / (Total.Number.of.Tests.Performed + lag(Total.Number.of.Tests.Performed,1) + lag(Total.Number.of.Tests.Performed,2))*100)),
          Percent.Change.Tests = round(((Cumulative.Number.of.Positives - lag(Cumulative.Number.of.Positives, 1) )/lag(Cumulative.Number.of.Positives, 1))*100),
          Three.Day.Average.Tests = (Cumulative.Number.of.Tests.Performed + lag(Cumulative.Number.of.Tests.Performed, 1) + lag(Cumulative.Number.of.Tests.Performed, 2))/3,
-         Three.Day.Change.Tests = Cumulative.Number.of.Tests.Performed - lag(Cumulative.Number.of.Tests.Performed, 4),
-         Three.Day.Percentage.Tests = round(((Cumulative.Number.of.Tests.Performed - lag(Cumulative.Number.of.Tests.Performed, 4))/lag(Cumulative.Number.of.Tests.Performed, 4))*100),
-         Last.28.Days.Tests = Cumulative.Number.of.Tests.Performed - lag(Cumulative.Number.of.Tests.Performed,29),
-         Last.14.Days.Tests = Cumulative.Number.of.Tests.Performed - lag(Cumulative.Number.of.Tests.Performed,15),
-         Last.7.Days.Tests = Cumulative.Number.of.Tests.Performed - lag(Cumulative.Number.of.Tests.Performed,8))
-
+         Three.Day.Change.Tests = Cumulative.Number.of.Tests.Performed - lag(Cumulative.Number.of.Tests.Performed, 3),
+         Three.Day.Percentage.Tests = round(((Cumulative.Number.of.Tests.Performed - lag(Cumulative.Number.of.Tests.Performed, 3))/lag(Cumulative.Number.of.Tests.Performed, 3))*100),
+         Last.28.Days.Tests = Cumulative.Number.of.Tests.Performed - lag(Cumulative.Number.of.Tests.Performed,28),
+         Last.14.Days.Tests = Cumulative.Number.of.Tests.Performed - lag(Cumulative.Number.of.Tests.Performed,14),
+         Last.7.Days.Tests = Cumulative.Number.of.Tests.Performed - lag(Cumulative.Number.of.Tests.Performed,7))
+tail(x)
+average_cases_per_day <- mean(x$New.Positives, na.rm = TRUE)
+x$Last.7.Days.Tests
+tail(x)
+ggplot(x) +
+  geom_col(aes(Test.Date, New.Positives, fill = ifelse(New.Positives < average_cases_per_day,'red','green')))
 
 colors_Total <- c(
   'Cumulative.Number.of.Positives' = '#d7191c',
@@ -73,7 +72,7 @@ ggPositive <- ggplot(x) +
   ggthemes::theme_economist() +
   theme(axis.text.x = element_text(angle = 90))+
   theme(legend.title = element_blank())
-ggsave("/Users/samedelstein/Onondaga_COVID/Positive Tests in Onondaga County.jpg", plot = ggPositive)
+ggsave("/Users/samedelstein/Onondaga_COVID/visualizations/Positive Tests in Onondaga County.jpg", plot = ggPositive, width = 10, height = 7)
 
 ggPositiveLast30 <- ggplot(filter(x, Test.Date > Sys.Date() -30)) +
   geom_hline(aes(yintercept = max(New.Positives, na.rm = TRUE)), alpha = .5, color = 'purple', linetype = 'dashed') +
@@ -94,7 +93,7 @@ ggPositiveLast30 <- ggplot(filter(x, Test.Date > Sys.Date() -30)) +
   ggthemes::theme_economist() +
   theme(axis.text.x = element_text(angle = 90)) +
   theme(legend.title = element_blank())
-ggsave("/Users/samedelstein/Onondaga_COVID/Positive Tests in Onondaga County Last 30 Days.jpg", plot = ggPositiveLast30)
+ggsave("/Users/samedelstein/Onondaga_COVID/visualizations/Positive Tests in Onondaga County Last 30 Days.jpg", plot = ggPositiveLast30, width = 10, height = 7)
 
 
 colors_Tests <- c(
@@ -117,7 +116,7 @@ ggTests <- ggplot(x) +
   scale_color_manual(values = colors_Tests) +
   ggthemes::theme_economist() +
   theme(axis.text.x = element_text(angle = 90))
-ggsave("/Users/samedelstein/Onondaga_COVID/Tests Performed in Onondaga County.jpg", plot = ggTests)
+ggsave("/Users/samedelstein/Onondaga_COVID/visualizations/Tests Performed in Onondaga County.jpg", plot = ggTests, width = 10, height = 7)
 
 
 colors_Percent <- c(
@@ -139,7 +138,7 @@ ggPercent <- ggplot(x) +
   scale_color_manual(values = colors_Percent) +
   ggthemes::theme_economist() +
   theme(axis.text.x = element_text(angle = 90))
-ggsave("/Users/samedelstein/Onondaga_COVID/Percent Positive Cases in Onondaga County.jpg", plot = ggPercent)
+ggsave("/Users/samedelstein/Onondaga_COVID/visualizations/Percent Positive Cases in Onondaga County.jpg", plot = ggPercent, width = 10, height = 7)
 
 
 colors_Positives <- c(
@@ -162,8 +161,8 @@ Rolling.7.Day <- ggplot(x) +
   ggthemes::theme_economist() +
   theme(axis.text.x = element_text(angle = 90)) +
   theme(legend.title = element_blank())
-ggsave("/Users/samedelstein/Onondaga_COVID/Positive Tests in Onondaga County with Rolling Average.jpg", plot = Rolling.7.Day)
-
+ggsave("/Users/samedelstein/Onondaga_COVID/visualizations/Positive Tests in Onondaga County with Rolling Average.jpg", plot = Rolling.7.Day, width = 10, height = 7)
+tail(x)
 
 Per.100000 <- ggplot(x) +
   geom_hline(aes(yintercept = 10), alpha = .7, color = 'red', linetype = 'dashed') +
@@ -181,6 +180,6 @@ Per.100000 <- ggplot(x) +
   scale_fill_manual(values = colors_Positives) +
   ggthemes::theme_economist() +
   theme(axis.text.x = element_text(angle = 90))
-ggsave("/Users/samedelstein/Onondaga_COVID/Positive Cases per 100,000 People in Onondaga County.jpg", plot = Per.100000)
+ggsave("/Users/samedelstein/Onondaga_COVID/visualizations/Positive Cases per 100,000 People in Onondaga County.jpg", plot = Per.100000, width = 10, height = 7)
 
-
+write.csv(x, "data/Onondaga_COVID_data.csv", row.names = FALSE)
