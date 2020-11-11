@@ -4,7 +4,7 @@ library(hrbrthemes) # git[la|hu]b / hrbrmstr / hrbrthemes
 library(tidyverse)
 library(data.table)
 
-data_list <- read_html('https://datawrapper.dwcdn.net/I4IZD/103/') %>% 
+data_list <- read_html('https://datawrapper.dwcdn.net/I4IZD/104/') %>%  #Need to check to see how often url changes
   html_node(xpath=".//script[contains(., 'visJSON')]") %>% # find the javascript section with the data
   html_text() %>% # get that section
   stri_split_lines() %>% # split into lines so we can target the actual data element
@@ -25,7 +25,4 @@ df$Baseline <- gsub("\\", "", df$Baseline,  fixed = TRUE)
 
 df$Date <- as.Date(df$Date, "%m/%d/%y")
 
-
-ggplot() +
-  geom_line(data = df, aes(Date, `Total Hospitalized`)) +
-  geom_line(data = df, aes(Date, `Total Critical Condition`))
+write.csv(df, "Onondaga_County_Hospitalizations.csv", row.names = FALSE)
