@@ -183,3 +183,42 @@ Per.100000 <- ggplot(x) +
 ggsave("/Users/samedelstein/Onondaga_COVID/visualizations/Positive Cases per 100,000 People in Onondaga County.jpg", plot = Per.100000, width = 10, height = 7)
 
 write.csv(x, "data/Onondaga_COVID_data.csv", row.names = FALSE)
+
+
+cuts <- data.frame(Ref = c("SCSD Remote \nLearning Starts", "SCSD Hybrid \nLearning Starts", "Halloween"),
+                   vals = c(as.Date('2020-09-14'), as.Date('2020-10-05'), as.Date('2020-10-31')),
+                   yvals = c(50,100,200),
+                   stringsAsFactors = FALSE)
+
+ggplot(x, aes(Test.Date, New.Positives )) +
+  geom_point() +
+  geom_vline(mapping = aes(xintercept = vals,
+                                        colour = Ref),
+                          data = cuts,
+                          show.legend = FALSE) +
+  geom_text(mapping = aes(x = vals,
+                          y = yvals,
+                          label = Ref,
+                          hjust = 1,
+                          vjust = 0,
+                          color = Ref),
+            data = cuts) +
+  scale_x_date(date_breaks = "1 week", date_labels = "%m/%d") +
+  labs(title = "New Cases in Onondaga County",
+       subtitle = "Key Dates Highlighted",
+       caption = "Source: data.ny.gov",
+       x = "",
+       y = "Confirmed Cases",
+       color = '') +
+  ggthemes::theme_economist() +
+  theme(legend.position = "none",
+        axis.text.x = element_text(angle = 90)) 
+
+
+
+x %>%
+  mutate(by1000 = round(x$Cumulative.Number.of.Positives, -3)) %>%
+  group_by(by1000) %>%
+  slice(which.min(Test.Date)) %>%
+  select(Test.Date, by1000)
+
