@@ -11,9 +11,9 @@ ggplot(SU_Cases, aes(DateRecorded, ActiveCases)) +
 ggplot(SU_Cases) +
   geom_hline(aes(yintercept = max(ActiveCases, na.rm = TRUE)), alpha = .5, color = 'black', linetype = 'dashed') +
   geom_line(aes(DateRecorded, ActiveCases, group = 1)) +
-  labs(title = "Positive Tests in Onondaga County",
+  labs(title = "Positive Tests at Syracuse University",
        subtitle = paste("Data as of", max(SU_Cases$DateRecorded), sep = " "),
-       caption = "Source: data.ny.gov",
+       caption = "Source: syracuse.edu",
        x = "",
        y = "Confirmed Cases",
        color = '') +

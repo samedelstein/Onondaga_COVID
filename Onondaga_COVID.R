@@ -216,9 +216,28 @@ ggplot(x, aes(Test.Date, New.Positives )) +
 
 
 
-x %>%
+timeto1000 <- x %>%
   mutate(by1000 = round(x$Cumulative.Number.of.Positives, -3)) %>%
   group_by(by1000) %>%
   slice(which.min(Test.Date)) %>%
   select(Test.Date, by1000)
 
+timeto1000$days <- difftime( timeto1000$Test.Date,lag(timeto1000$Test.Date,1))
+timeto1000 <- timeto1000 %>% filter(by1000 != 0)
+
+DaysToReach1000Cases <- ggplot(timeto1000, aes(factor(by1000), days)) +
+  geom_col() +
+  geom_text(
+    aes(label = paste0(days, " days"), y = days + 0.1),
+    position = position_dodge(0.9),
+    vjust = -.5
+  )+ 
+  labs(title = "Days to Reach the Next 1,000 Cases in Onondaga County",
+        caption = "Source: data.ny.gov",
+        x = "Thousand Cases",
+        y = "Number of Days",
+        color = '') +
+  ggthemes::theme_economist() +
+  theme(legend.position = "none",
+        axis.text.x = element_text(angle = 90)) 
+ggsave("/Users/samedelstein/Onondaga_COVID/visualizations/DaysToReach1000Cases.jpg", plot = DaysToReach1000Cases, width = 10, height = 7)
