@@ -26,3 +26,12 @@ df$Baseline <- gsub("\\", "", df$Baseline,  fixed = TRUE)
 df$Date <- as.Date(df$Date, "%m/%d/%y")
 
 write.csv(df, "data/Onondaga_County_Hospitalizations.csv", row.names = FALSE)
+
+ggplot(df, aes(Date, `Total Hospitalized`)) +
+  geom_point()
+
+
+merge(df, county_case_mapping_df_new, by.x = 'Date', by.y = 'DATE') %>%
+  ggplot() +
+  geom_col(aes(Date, `Total Hospitalized`), alpha = .5, color = 'red', fill = 'red') +
+  geom_col(aes(Date, new_cases), alpha = .5, color = 'blue', fill = 'blue')

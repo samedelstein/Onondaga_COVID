@@ -9,7 +9,6 @@ county_case_mapping_df_new <- data.frame(rbind(county_case_mapping_df, county_ca
 county_case_mapping_df_new <- county_case_mapping_df_new %>% 
   mutate(new_cases = CONFIRMED - lag(CONFIRMED,1),
          DATE = as.Date(paste0(county_case_mapping_df_new$DATE, '-', year(Sys.Date())), '%B%d-%Y'))
-
 write.csv(county_case_mapping_df_new, "data/county_case_mapping.csv", row.names = FALSE)
 
 
