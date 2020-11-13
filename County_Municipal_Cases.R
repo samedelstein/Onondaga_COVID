@@ -7,4 +7,5 @@ County_cases_by_municipality <- County_cases_by_municipality$features$attributes
 County_cases_by_municipality <- County_cases_by_municipality %>%  mutate(Date = Sys.Date())
 
 County_cases_by_municipality_new <- rbind(county_cases_zip_old_df,County_cases_by_municipality )
+
 write.csv(County_cases_by_municipality_new, "data/County_cases_by_municipality.csv", row.names = FALSE)

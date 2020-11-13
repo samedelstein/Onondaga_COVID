@@ -7,6 +7,10 @@ City_case_mapping_df <- City_case_mapping$features$attributes
 duprows <- rownames(city_case_mapping_old) %in% rownames(City_case_mapping_df)
 city_case_mapping_df_new <- data.frame(rbind(City_case_mapping_df, city_case_mapping_old[!duprows,]))
 
+city_case_mapping_df_new <- city_case_mapping_df_new %>%
+  mutate(new_cases = CONFIRMED - lag(CONFIRMED,1),
+         DATE = as.Date(paste0(DATE, '-', year(Sys.Date())), '%B%d-%Y'))
+
 write.csv(city_case_mapping_df_new, "data/city_case_mapping.csv", row.names = FALSE)
 
 
