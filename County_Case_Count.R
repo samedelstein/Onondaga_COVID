@@ -16,6 +16,29 @@ county_case_mapping_df_new <- county_case_mapping_df_new %>%
 write.csv(county_case_mapping_df_new, "data/county_case_mapping.csv", row.names = FALSE)
 
 
-  ggplot(county_case_mapping_df_new, aes(DATE, new_cases)) +
-    geom_col()
+
+
+colors_Positives <- c(
+  'Rolling.7.Day.Positives' = '#fdae61',
+  'New.Daily.Positives' = '#7b3294')
+
+
+county_case_mapping_df_new %>%
+  mutate(Last.7.Days.Mean = (CONFIRMED - lag(CONFIRMED,7))/7) %>%
+  ggplot() +
+  geom_col(aes(DATE, new_cases, group = 1, fill='New.Daily.Positives')) +
+  geom_line(aes(DATE, Last.7.Days.Mean, group = 1, color = 'Rolling.7.Day.Positives'), size = 2) +
+  geom_hline(aes(yintercept = max(Last.7.Days.Mean, na.rm = TRUE)), alpha = .5, color = 'red', linetype = 'dashed') +
+  labs(title = "Positive Tests in Onondaga County with Rolling Average",
+       subtitle = paste("Data as of", max(county_case_mapping_df_new$DATE), sep = " "),
+       caption = "Source: covid19.ongov.net/data",
+       x = "",
+       y = "Confirmed Cases",
+       color = '') +
+  scale_x_date(date_breaks = "1 week", date_labels = "%m/%d") +
+  scale_color_manual(values = colors_Positives) +
+  scale_fill_manual(values = colors_Positives) +
+  ggthemes::theme_economist() +
+  theme(axis.text.x = element_text(angle = 90)) +
+  theme(legend.title = element_blank())
   
