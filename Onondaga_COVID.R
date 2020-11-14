@@ -141,6 +141,7 @@ ggPercent <- ggplot(x) +
 ggsave("/Users/samedelstein/Onondaga_COVID/visualizations/Percent Positive Cases in Onondaga County.jpg", plot = ggPercent, width = 10, height = 7)
 
 
+
 colors_Positives <- c(
   'Rolling.7.Day.Positives' = '#fdae61',
   'New.Daily.Positives' = '#7b3294')
