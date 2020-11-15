@@ -4,7 +4,7 @@ library(hrbrthemes) # git[la|hu]b / hrbrmstr / hrbrthemes
 library(tidyverse)
 library(data.table)
 
-data_list <- read_html('https://datawrapper.dwcdn.net/I4IZD/105/') %>%  #Need to check to see how often url changes
+data_list <- read_html('https://datawrapper.dwcdn.net/I4IZD/107/') %>%  #Need to check to see how often url changes
   html_node(xpath=".//script[contains(., 'visJSON')]") %>% # find the javascript section with the data
   html_text() %>% # get that section
   stri_split_lines() %>% # split into lines so we can target the actual data element
@@ -15,7 +15,6 @@ data_list <- read_html('https://datawrapper.dwcdn.net/I4IZD/105/') %>%  #Need to
   stri_split_lines() %>% 
   unlist() 
 
-grep("Date ,Total Hospitalized,New admissions,Total Critical Con", x[[1]])
 
 step_1 <- data_list[grep("Date ,Total Hospitalized,New admissions,Total Critical Con", data_list)+1:length(data_list)]
 step_2 <- step_1[1:grep("isPreview", step_1)-1] %>% stri_split_fixed("\\t")
