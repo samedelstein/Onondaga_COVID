@@ -3,7 +3,7 @@ SU_Cases <- fromJSON("https://minio.dev.digitalservices.syr.edu/data/public/covi
 
 write.csv(SU_Cases, "data/SU_Cases.csv", row.names = FALSE)
 
-
+tail(SU_Cases)
 ggplot(SU_Cases, aes(DateRecorded, ActiveCases)) +
   geom_point()
 

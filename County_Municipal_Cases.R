@@ -9,3 +9,6 @@ County_cases_by_municipality <- County_cases_by_municipality %>%  mutate(Date = 
 County_cases_by_municipality_new <- rbind(county_cases_zip_old_df,County_cases_by_municipality )
 
 write.csv(County_cases_by_municipality_new, "data/County_cases_by_municipality.csv", row.names = FALSE)
+
+ggplot(filter(County_cases_by_municipality_new, MUNI == 'Syracuse'), aes(Date, RATELABEL, group = MUNI, color = MUNI)) +
+  geom_line()

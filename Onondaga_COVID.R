@@ -163,7 +163,6 @@ Rolling.7.Day <- ggplot(x) +
   theme(axis.text.x = element_text(angle = 90)) +
   theme(legend.title = element_blank())
 ggsave("/Users/samedelstein/Onondaga_COVID/visualizations/Positive Tests in Onondaga County with Rolling Average.jpg", plot = Rolling.7.Day, width = 10, height = 7)
-tail(x)
 
 Per.100000 <- ggplot(x) +
   geom_hline(aes(yintercept = 10), alpha = .7, color = 'red', linetype = 'dashed') +
