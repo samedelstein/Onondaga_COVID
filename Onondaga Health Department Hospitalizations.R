@@ -5,7 +5,7 @@ library(tidyverse)
 library(data.table)
 
 #County Hospitalizations
-data_list <- read_html('https://datawrapper.dwcdn.net/I4IZD/108/') %>%  #Need to check to see how often url changes
+data_list <- read_html('https://datawrapper.dwcdn.net/I4IZD/109/') %>%  #Need to check to see how often url changes
   html_node(xpath=".//script[contains(., 'visJSON')]") %>% # find the javascript section with the data
   html_text() %>% # get that section
   stri_split_lines() %>% # split into lines so we can target the actual data element
@@ -564,7 +564,7 @@ write.csv(df, "data/LikelyExposureSource.csv", row.names = FALSE)
 #COVID-19 Testing: Tests Reported
 
 
-data_list <- read_html('https://datawrapper.dwcdn.net/C77SR/35/') %>%  #Need to check to see how often url changes
+data_list <- read_html('https://datawrapper.dwcdn.net/C77SR/38/') %>%  #Need to check to see how often url changes
   html_node(xpath=".//script[contains(., 'tables')]") %>% # find the javascript section with the data
   html_text() %>% # get that section
   stri_split_lines() %>% # split into lines so we can target the actual data element

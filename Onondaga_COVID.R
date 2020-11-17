@@ -191,7 +191,6 @@ cuts <- data.frame(Ref = c("SCSD Remote \nLearning Starts", "SCSD Hybrid \nLearn
                    stringsAsFactors = FALSE)
 
 ggplot(x, aes(Test.Date, New.Positives )) +
-  geom_point() +
   geom_vline(mapping = aes(xintercept = vals,
                                         colour = Ref),
                           data = cuts,
@@ -203,6 +202,7 @@ ggplot(x, aes(Test.Date, New.Positives )) +
                           vjust = 0,
                           color = Ref),
             data = cuts) +
+  geom_point() +
   scale_x_date(date_breaks = "1 week", date_labels = "%m/%d") +
   labs(title = "New Cases in Onondaga County",
        subtitle = "Key Dates Highlighted",
