@@ -1,6 +1,8 @@
 library(lubridate)
 library(jsonlite)
 library(RCurl)
+library(ggrepel)
+
 county_case_mapping_old <- read.csv("data/county_case_mapping.csv")
 
 
@@ -22,13 +24,13 @@ colors_Positives <- c(
   'Rolling.7.Day.Positives' = '#fdae61',
   'New.Daily.Positives' = '#7b3294')
 
-
-county_case_mapping_df_new %>%
+county_case_mapping_viz <- county_case_mapping_df_new %>%
   mutate(Last.7.Days.Mean = (CONFIRMED - lag(CONFIRMED,7))/7) %>%
   ggplot() +
   geom_col(aes(DATE, new_cases, group = 1, fill='New.Daily.Positives')) +
   geom_line(aes(DATE, Last.7.Days.Mean, group = 1, color = 'Rolling.7.Day.Positives'), size = 2) +
-  geom_hline(aes(yintercept = max(Last.7.Days.Mean, na.rm = TRUE)), alpha = .5, color = 'red', linetype = 'dashed') +
+  #geom_hline(aes(yintercept = max(Last.7.Days.Mean, na.rm = TRUE)), alpha = .5, color = 'red', linetype = 'dashed') +
+  geom_vline(mapping = aes(xintercept = as.Date('2020-10-31')), linetype = 'dashed') +
   labs(title = "Positive Tests in Onondaga County with Rolling Average",
        subtitle = paste("Data as of", max(county_case_mapping_df_new$DATE), sep = " "),
        caption = "Source: covid19.ongov.net/data",
@@ -41,4 +43,112 @@ county_case_mapping_df_new %>%
   ggthemes::theme_economist() +
   theme(axis.text.x = element_text(angle = 90)) +
   theme(legend.title = element_blank())
-  
+ggsave("/Users/samedelstein/Onondaga_COVID/visualizations/county_case_mapping_viz.jpg", plot = county_case_mapping_viz, width = 10, height = 7)
+
+
+
+timeto1000_County <- county_case_mapping_df_new %>%
+  mutate(by1000 = round(county_case_mapping_df_new$CONFIRMED, -3)) %>%
+  group_by(by1000) %>%
+  slice(which.min(DATE)) %>%
+  select(DATE, by1000)
+
+timeto1000_County$days <- difftime( timeto1000_County$DATE,lag(timeto1000_County$DATE,1))
+timeto1000_County <- timeto1000_County %>% filter(by1000 != 0)
+DaysToReach1000Cases_County <- ggplot(timeto1000_County, aes(factor(by1000), days)) +
+  geom_col() +
+  geom_text(
+    aes(label = paste0(days, " days"), y = days + 0.1),
+    position = position_dodge(0.9),
+    vjust = -.5
+  )+ 
+  geom_text(aes(label = as.character(DATE)), color = "white", size = 3, position = position_stack(vjust = 0.5)) + 
+  labs(title = "Days to Reach the Next 1,000 Cases in Onondaga County",
+       caption = "Source: covid19.ongov.net/data",
+       x = "Thousand Cases",
+       y = "Number of Days",
+       color = '') +
+  ggthemes::theme_economist() +
+  theme(legend.position = "none",
+        axis.text.x = element_text(angle = 90)) 
+ggsave("/Users/samedelstein/Onondaga_COVID/visualizations/DaysToReach1000Cases_County.jpg", plot = DaysToReach1000Cases_County, width = 10, height = 7)
+
+
+
+
+cuts <- data.frame(Ref = c("SU Students Return", "County In-Person &\n SCSD Remote Schooling \nStart", "SCSD Hybrid \nLearning Starts", "Halloween"),
+                   vals = c(as.Date('2020-08-17'),as.Date('2020-09-14'), as.Date('2020-10-05'), as.Date('2020-10-31')),
+                   yvals = c(100,50,100,200),
+                   xmin = as.Date('2020-09-09'),
+                   xmax = as.Date('2020-09-14'),
+                   ymin = 0,
+                   ymax = 250,
+                   stringsAsFactors = FALSE)
+
+d=data.frame(
+  xmin = as.Date('2020-09-09'),
+  xmax = as.Date('2020-09-14'),
+  ymin = 0,
+  ymax = 250)
+
+county_blog_data <- county_case_mapping_df_new %>%
+  mutate(Last.7.Days.Mean = (CONFIRMED - lag(CONFIRMED,7))/7)
+
+ggplot() +
+  geom_vline(mapping = aes(xintercept = vals,
+                           colour = Ref),
+             data = cuts,
+             show.legend = FALSE) +
+  geom_rect(data = cuts, aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax), fill = '#fb9a99', alpha = .5) +
+  geom_text(mapping = aes(x = vals,
+                          y = yvals,
+                          label = Ref,
+                          hjust = 1,
+                          vjust = 0,
+                          color = Ref),
+            data = cuts) +
+  geom_point(data = county_blog_data, aes(DATE, new_cases ),alpha = .2, size = 1) +
+  geom_point(data = SU_Cases, aes(DateRecorded, NewStudentPositives), color = "red", alpha = .2) +
+  geom_line(data = SU_Cases, aes(DateRecorded, Last.7.Days.Mean), color = "red") +
+  geom_line(data = county_blog_data, aes(DATE, Last.7.Days.Mean)) +
+  scale_x_date(date_breaks = "1 week", date_labels = "%m/%d") +
+  labs(title = "New Cases in Onondaga County: County Data",
+       subtitle = "Key Dates Highlighted",
+       caption = "Source: covid19.ongov.net/data",
+       x = "",
+       y = "Confirmed Cases",
+       color = '') +
+  ggthemes::theme_economist() +
+  theme(legend.position = "none",
+        axis.text.x = element_text(angle = 90))
+
+
+
+
+new_cases_key_dates_CountyData <- ggplot(county_case_mapping_df_new, aes(DATE, new_cases )) +
+  geom_vline(mapping = aes(xintercept = vals,
+                           colour = Ref),
+             data = cuts,
+             show.legend = FALSE) +
+  geom_text(mapping = aes(x = vals,
+                          y = yvals,
+                          label = Ref,
+                          hjust = 1,
+                          vjust = 0,
+                          color = Ref),
+            data = cuts) +
+  geom_point() +
+  geom_point(data = SU_Cases, aes(DateRecorded, NewStudentPositives), color = "red") +
+  scale_x_date(date_breaks = "1 week", date_labels = "%m/%d") +
+  labs(title = "New Cases in Onondaga County: County Data",
+       subtitle = "Key Dates Highlighted",
+       caption = "Source: covid19.ongov.net/data",
+       x = "",
+       y = "Confirmed Cases",
+       color = '') +
+  ggthemes::theme_economist() +
+  theme(legend.position = "none",
+        axis.text.x = element_text(angle = 90)) 
+ggsave("/Users/samedelstein/Onondaga_COVID/visualizations/new_cases_key_dates_CountyData.jpg", plot = new_cases_key_dates_CountyData, width = 10, height = 7)
+
+
