@@ -5,7 +5,7 @@ library(tidyverse)
 library(data.table)
 
 #County Hospitalizations
-data_list <- read_html('https://datawrapper.dwcdn.net/I4IZD/110/') %>%  #Need to check to see how often url changes
+data_list <- read_html('https://datawrapper.dwcdn.net/I4IZD/111/') %>%  #Need to check to see how often url changes
   html_node(xpath=".//script[contains(., 'visJSON')]") %>% # find the javascript section with the data
   html_text() %>% # get that section
   stri_split_lines() %>% # split into lines so we can target the actual data element
@@ -29,6 +29,38 @@ write.csv(df, "data/Onondaga_County_Hospitalizations.csv", row.names = FALSE)
 
 ggplot(df, aes(Date, `Total Hospitalized`)) +
   geom_point()
+
+cuts <- data.frame(Ref = c("SU Students Return", "SCSD Remote \nLearning Starts", "SCSD Hybrid \nLearning Starts", "Halloween"),
+                   vals = c(as.Date('2020-08-17'),as.Date('2020-09-14'), as.Date('2020-10-05'), as.Date('2020-10-31')),
+                   yvals = c(5,5,8,12),
+                   stringsAsFactors = FALSE)
+
+new_COVID_Hospitalizations_CountyData <- ggplot(df, aes(Date, `New admissions` )) +
+  geom_vline(mapping = aes(xintercept = vals,
+                           colour = Ref),
+             data = cuts,
+             show.legend = FALSE) +
+  geom_text(mapping = aes(x = vals,
+                          y = yvals,
+                          label = Ref,
+                          hjust = 1,
+                          vjust = 0,
+                          color = Ref),
+            data = cuts) +
+  geom_point() +
+  scale_x_date(date_breaks = "1 week", date_labels = "%m/%d") +
+  labs(title = "New COVID-19 Hospital Admissions in Onondaga County",
+       subtitle = "Key Dates Highlighted",
+       caption = "Source: covid19.ongov.net/data",
+       x = "",
+       y = "Confirmed Cases",
+       color = '') +
+  ggthemes::theme_economist() +
+  theme(legend.position = "none",
+        axis.text.x = element_text(angle = 90)) 
+ggsave("/Users/samedelstein/Onondaga_COVID/visualizations/new_COVID_Hospitalizations_CountyData.jpg", plot = new_COVID_Hospitalizations_CountyData, width = 10, height = 7)
+
+
 
 
 merge(df, county_case_mapping_df_new, by.x = 'Date', by.y = 'DATE') %>%

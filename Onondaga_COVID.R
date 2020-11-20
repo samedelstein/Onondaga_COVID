@@ -184,13 +184,13 @@ ggsave("/Users/samedelstein/Onondaga_COVID/visualizations/Positive Cases per 100
 
 write.csv(x, "data/Onondaga_COVID_data.csv", row.names = FALSE)
 
-
-cuts <- data.frame(Ref = c("SCSD Remote \nLearning Starts", "SCSD Hybrid \nLearning Starts", "Halloween"),
-                   vals = c(as.Date('2020-09-14'), as.Date('2020-10-05'), as.Date('2020-10-31')),
-                   yvals = c(50,100,200),
+cuts <- data.frame(Ref = c("SU Students Return", "SCSD Remote \nLearning Starts", "SCSD Hybrid \nLearning Starts", "Halloween"),
+                   vals = c(as.Date('2020-08-17'),as.Date('2020-09-14'), as.Date('2020-10-05'), as.Date('2020-10-31')),
+                   yvals = c(100,50,100,200),
                    stringsAsFactors = FALSE)
 
-ggplot(x, aes(Test.Date, New.Positives )) +
+
+new_cases_key_dates <- ggplot(x, aes(Test.Date, New.Positives )) +
   geom_vline(mapping = aes(xintercept = vals,
                                         colour = Ref),
                           data = cuts,
@@ -213,6 +213,7 @@ ggplot(x, aes(Test.Date, New.Positives )) +
   ggthemes::theme_economist() +
   theme(legend.position = "none",
         axis.text.x = element_text(angle = 90)) 
+ggsave("/Users/samedelstein/Onondaga_COVID/visualizations/new_cases_key_dates.jpg", plot = new_cases_key_dates, width = 10, height = 7)
 
 
 
