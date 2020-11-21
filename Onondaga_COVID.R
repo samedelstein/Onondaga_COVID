@@ -218,7 +218,7 @@ ggsave("/Users/samedelstein/Onondaga_COVID/visualizations/new_cases_key_dates.jp
 
 
 timeto1000 <- x %>%
-  mutate(by1000 = round(x$Cumulative.Number.of.Positives, -3)) %>%
+  mutate(by1000 = floor(Cumulative.Number.of.Positives/1000)*1000) %>%
   group_by(by1000) %>%
   slice(which.min(Test.Date)) %>%
   select(Test.Date, by1000)

@@ -48,7 +48,7 @@ ggsave("/Users/samedelstein/Onondaga_COVID/visualizations/county_case_mapping_vi
 
 
 timeto1000_County <- county_case_mapping_df_new %>%
-  mutate(by1000 = round(county_case_mapping_df_new$CONFIRMED, -3)) %>%
+  mutate(by1000 = floor(CONFIRMED/1000)*1000) %>%
   group_by(by1000) %>%
   slice(which.min(DATE)) %>%
   select(DATE, by1000)
@@ -150,5 +150,31 @@ new_cases_key_dates_CountyData <- ggplot(county_case_mapping_df_new, aes(DATE, n
   theme(legend.position = "none",
         axis.text.x = element_text(angle = 90)) 
 ggsave("/Users/samedelstein/Onondaga_COVID/visualizations/new_cases_key_dates_CountyData.jpg", plot = new_cases_key_dates_CountyData, width = 10, height = 7)
+
+
+cases_by_week_county <- county_case_mapping_df_new %>%
+  mutate(week_number = epiweek(DATE)) %>%
+  group_by(week_number) %>%
+  summarize(sum_cases = sum(new_cases, na.rm = TRUE)) %>%
+  mutate(pct_change = (sum_cases/lag(sum_cases) - 1) * 100)
+
+cases_by_week_county_viz <- ggplot(cases_by_week_county, aes(week_number, sum_cases)) +
+  geom_col(fill = "steelblue") +  
+  geom_text(
+    aes(label = sum_cases),
+    position = position_dodge(0.9),
+    vjust = -.5
+  ) +
+  #scale_x_date(date_breaks = "1 week", date_labels = "%m/%d") +
+  labs(title = "Cases per week (Sunday - Saturday): County Data",
+       caption = "Source: covid19.ongov.net/data",
+       x = "",
+       y = "Confirmed Cases",
+       color = '') +
+  ggthemes::theme_economist() +
+  theme(legend.position = "none",
+        axis.text.x = element_text(angle = 90)) 
+ggsave("/Users/samedelstein/Onondaga_COVID/visualizations/cases_by_week_county_viz.jpg", plot = cases_by_week_county_viz, width = 10, height = 7)
+
 
 
