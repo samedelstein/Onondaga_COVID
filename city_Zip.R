@@ -12,10 +12,14 @@ write.csv(city_cases_zip_new, "data/city_cases_zip.csv", row.names = FALSE)
 city_cases_zip_new %>%
   group_by(ZIP) %>%
   mutate(new_cases = CONFIRMED - lag(CONFIRMED,1)) %>%
-  ggplot(aes(Date, new_cases, color = factor(ZIP))) +
+  ggplot(aes(Date, CONFIRMED, color = factor(ZIP))) +
   geom_line()
  
-
+city_cases_zip_new %>%
+  filter(ZIP == 13210) %>%
+  mutate(active = CONFIRMED-RECOVERED) %>%
+  ggplot(aes(Date, active)) +
+  geom_col()
 
 SU13210 <- city_cases_zip_new %>%
   group_by(ZIP) %>%

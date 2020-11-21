@@ -29,8 +29,8 @@ county_case_mapping_viz <- county_case_mapping_df_new %>%
   ggplot() +
   geom_col(aes(DATE, new_cases, group = 1, fill='New.Daily.Positives')) +
   geom_line(aes(DATE, Last.7.Days.Mean, group = 1, color = 'Rolling.7.Day.Positives'), size = 2) +
-  #geom_hline(aes(yintercept = max(Last.7.Days.Mean, na.rm = TRUE)), alpha = .5, color = 'red', linetype = 'dashed') +
-  geom_vline(mapping = aes(xintercept = as.Date('2020-10-31')), linetype = 'dashed') +
+  geom_hline(aes(yintercept = max(Last.7.Days.Mean, na.rm = TRUE)), alpha = .5, color = 'red', linetype = 'dashed') +
+  #geom_vline(mapping = aes(xintercept = as.Date('2020-10-31')), linetype = 'dashed') +
   labs(title = "Positive Tests in Onondaga County with Rolling Average",
        subtitle = paste("Data as of", max(county_case_mapping_df_new$DATE), sep = " "),
        caption = "Source: covid19.ongov.net/data",

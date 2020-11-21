@@ -27,8 +27,25 @@ df$Date <- as.Date(df$Date, "%m/%d/%y")
 
 write.csv(df, "data/Onondaga_County_Hospitalizations.csv", row.names = FALSE)
 
-ggplot(df, aes(Date, `Total Hospitalized`)) +
-  geom_point()
+
+
+Total_COVID_Hospitalizations_CountyData <- ggplot(df, aes(Date, `Total Hospitalized`)) +
+  geom_col() +
+  scale_x_date(date_breaks = "1 week", date_labels = "%m/%d") +
+  labs(title = "Current COVID-19 Hospital Admissions in Onondaga County",
+       caption = "Source: covid19.ongov.net/data",
+       x = "",
+       y = "Current Hospitalized",
+       color = '') +
+  ggthemes::theme_economist() +
+  theme(legend.position = "none",
+        axis.text.x = element_text(angle = 90)) 
+ggsave("/Users/samedelstein/Onondaga_COVID/visualizations/Total_COVID_Hospitalizations_CountyData.jpg", plot = Total_COVID_Hospitalizations_CountyData, width = 10, height = 7)
+
+
+
+
+
 
 cuts <- data.frame(Ref = c("SU Students Return", "SCSD Remote \nLearning Starts", "SCSD Hybrid \nLearning Starts", "Halloween"),
                    vals = c(as.Date('2020-08-17'),as.Date('2020-09-14'), as.Date('2020-10-05'), as.Date('2020-10-31')),
