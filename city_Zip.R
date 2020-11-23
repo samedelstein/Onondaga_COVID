@@ -18,7 +18,7 @@ city_cases_zip_new %>%
 city_cases_zip_new %>%
   filter(ZIP == 13210) %>%
   mutate(active = CONFIRMED-RECOVERED) %>%
-  ggplot(aes(Date, active)) +
+  ggplot(aes(Date, CONFIRMED)) +
   geom_col()
 
 SU13210 <- city_cases_zip_new %>%
