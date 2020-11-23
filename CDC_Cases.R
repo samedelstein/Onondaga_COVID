@@ -6,10 +6,11 @@ ny_COVID_data_CDC <- read_json('https://covid.cdc.gov/covid-data-tracker/COVIDDa
 ny_COVID_data_CDC_list <- ny_COVID_data_CDC$integrated_county_timeseries_external_data
 lstData <- Map(as.data.frame, ny_COVID_data_CDC_list)
 ny_COVID_data_CDC_df <- rbindlist(lstData) %>%
-  filter(county == 'Onondaga County')
+  filter(county == 'Onondaga County') %>%
+  mutate(date = as.Date(date))
 names(ny_COVID_data_CDC_df)
 ggplot(ny_COVID_data_CDC_df) +
-  geom_line(aes(date, new_deaths_7_day_rolling_average, group = 1))
+  geom_line(aes(date, new_cases_7_day_rolling_average, group = 1))
 
 
-ny_COVID_data_CDC
+tail(ny_COVID_data_CDC_df)

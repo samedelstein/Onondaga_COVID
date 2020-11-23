@@ -39,8 +39,11 @@ x <- df %>%
          Three.Day.Percentage.Tests = round(((Cumulative.Number.of.Tests.Performed - lag(Cumulative.Number.of.Tests.Performed, 3))/lag(Cumulative.Number.of.Tests.Performed, 3))*100),
          Last.28.Days.Tests = Cumulative.Number.of.Tests.Performed - lag(Cumulative.Number.of.Tests.Performed,28),
          Last.14.Days.Tests = Cumulative.Number.of.Tests.Performed - lag(Cumulative.Number.of.Tests.Performed,14),
-         Last.7.Days.Tests = Cumulative.Number.of.Tests.Performed - lag(Cumulative.Number.of.Tests.Performed,7))
-tail(x)
+         Last.7.Days.Tests = Cumulative.Number.of.Tests.Performed - lag(Cumulative.Number.of.Tests.Performed,7),
+         rollmean = zoo::rollmean(x$New.Positives, k = 7, fill = NA, align = "right"))
+
+zoo::rollmean(x$New.Positives, k = 7, fill = NA, align = "right")
+lag(x$Cumulative.Number.of.Positives, 7)
 average_cases_per_day <- mean(x$New.Positives, na.rm = TRUE)
 x$Last.7.Days.Tests
 tail(x)
