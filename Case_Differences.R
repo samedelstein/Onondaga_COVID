@@ -14,7 +14,7 @@ state_data <- read.csv("https://health.data.ny.gov/api/views/xdss-u53e/rows.csv?
 ny_COVID_data_CDC <- read_json('https://covid.cdc.gov/covid-data-tracker/COVIDData/getAjaxData?id=integrated_county_timeseries_state_NY_external')
 ny_COVID_data_CDC_list <- ny_COVID_data_CDC$integrated_county_timeseries_external_data
 lstData <- Map(as.data.frame, ny_COVID_data_CDC_list)
-CDC_data <-  <- rbindlist(lstData) %>%
+CDC_data  <- rbindlist(lstData) %>%
   filter(county == 'Onondaga County') %>%
   mutate(date = as.Date(date)) %>% arrange(date)
 
