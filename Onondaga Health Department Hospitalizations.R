@@ -5,7 +5,7 @@ library(tidyverse)
 library(data.table)
 
 #County Hospitalizations
-data_list <- read_html('https://datawrapper.dwcdn.net/I4IZD/114/') %>%  #Need to check to see how often url changes
+data_list <- read_html('https://datawrapper.dwcdn.net/I4IZD/115/') %>%  #Need to check to see how often url changes
   html_node(xpath=".//script[contains(., 'visJSON')]") %>% # find the javascript section with the data
   html_text() %>% # get that section
   stri_split_lines() %>% # split into lines so we can target the actual data element
@@ -24,6 +24,30 @@ names(df) <- c("Date", "Total Hospitalized","New admissions","Total Critical Con
 df$Baseline <- gsub("\\", "", df$Baseline,  fixed = TRUE)
 
 df$Date <- as.Date(df$Date, "%m/%d/%y")
+
+Hospitalizations_per_week_viz <- df %>%
+  mutate(Last.7.Days.Mean_County = zoo::rollmean(`Total Hospitalized`, k = 7, fill = NA, align = "right"),
+         week = week(Date)) %>%
+  group_by(week) %>%
+  summarise(sum_total_hospitalized = sum(`New admissions`)) %>%
+  ggplot(aes(week, sum_total_hospitalized)) +
+  geom_col(fill = "steelblue") +  
+  geom_text(
+    aes(label = sum_total_hospitalized),
+    position = position_dodge(0.9),
+    vjust = -.5
+  ) +
+  #scale_x_date(date_breaks = "1 week", date_labels = "%m/%d") +
+  labs(title = "New COVID Hospitalizations Per Week (Sunday - Saturday)",
+       caption = "Source: covid19.ongov.net/data",
+       x = "",
+       y = "Hospitalizations",
+       color = '') +
+  ggthemes::theme_economist() +
+  theme(legend.position = "none",
+        axis.text.x = element_text(angle = 90)) 
+ggsave("/Users/samedelstein/Onondaga_COVID/visualizations/Hospitalizations_per_week_viz.jpg", plot = Hospitalizations_per_week_viz, width = 10, height = 7)
+
 
 write.csv(df, "data/Onondaga_County_Hospitalizations.csv", row.names = FALSE)
 

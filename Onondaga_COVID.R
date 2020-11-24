@@ -3,6 +3,7 @@ library(tidyverse)
 library(ggplot2)
 library(gridExtra)
 library(zoo)
+library(ggthemes)
 
 df <- read.csv("https://health.data.ny.gov/api/views/xdss-u53e/rows.csv?accessType=DOWNLOAD", stringsAsFactors = FALSE)
 
@@ -17,7 +18,6 @@ Cumulative_Tests_State <- ggplot(df, aes(Test.Date, Cumulative.Number.of.Tests.P
   geom_line(data = filter(df, County == "Onondaga"), aes(Test.Date, Cumulative.Number.of.Tests.Performed, group = County), color = "red")+
   #scale_y_log10()+
   ggthemes::theme_fivethirtyeight()
-tail(x)
 x <- df %>%
   filter(County == "Onondaga") %>%
   mutate(Test.Date = as.Date(Test.Date, "%m/%d/%Y"),
@@ -30,9 +30,9 @@ x <- df %>%
          Last.7.Days = Cumulative.Number.of.Positives - lag(Cumulative.Number.of.Positives,7),
          Last.7.Days.Mean = (Cumulative.Number.of.Positives - lag(Cumulative.Number.of.Positives,7))/7,
          Positive.Per.100000 = (Last.7.Days.Mean/460528)*100000,
-         Percent.Positive = round((New.Positives/Total.Number.of.Tests.Performed)*100),
-         Total.Percent.Positive = round((Cumulative.Number.of.Positives/Cumulative.Number.of.Tests.Performed)*100),
-         Three.Day.Percent.Positive = round(((New.Positives + lag(New.Positives, 1) + lag(New.Positives, 2)) / (Total.Number.of.Tests.Performed + lag(Total.Number.of.Tests.Performed,1) + lag(Total.Number.of.Tests.Performed,2))*100)),
+         Percent.Positive = (New.Positives/Total.Number.of.Tests.Performed),
+         Total.Percent.Positive = (Cumulative.Number.of.Positives/Cumulative.Number.of.Tests.Performed),
+         Three.Day.Percent.Positive = ((New.Positives + lag(New.Positives, 1) + lag(New.Positives, 2)) / (Total.Number.of.Tests.Performed + lag(Total.Number.of.Tests.Performed,1) + lag(Total.Number.of.Tests.Performed,2))),
          Percent.Change.Tests = round(((Cumulative.Number.of.Positives - lag(Cumulative.Number.of.Positives, 1) )/lag(Cumulative.Number.of.Positives, 1))*100),
          Three.Day.Average.Tests = (Cumulative.Number.of.Tests.Performed + lag(Cumulative.Number.of.Tests.Performed, 1) + lag(Cumulative.Number.of.Tests.Performed, 2))/3,
          Three.Day.Change.Tests = Cumulative.Number.of.Tests.Performed - lag(Cumulative.Number.of.Tests.Performed, 3),
@@ -40,7 +40,7 @@ x <- df %>%
          Last.28.Days.Tests = Cumulative.Number.of.Tests.Performed - lag(Cumulative.Number.of.Tests.Performed,28),
          Last.14.Days.Tests = Cumulative.Number.of.Tests.Performed - lag(Cumulative.Number.of.Tests.Performed,14),
          Last.7.Days.Tests = Cumulative.Number.of.Tests.Performed - lag(Cumulative.Number.of.Tests.Performed,7),
-         rollmean = zoo::rollmean(x$New.Positives, k = 7, fill = NA, align = "right"))
+         rollmean = zoo::rollmean(New.Positives, k = 7, fill = NA, align = "right"))
 
 zoo::rollmean(x$New.Positives, k = 7, fill = NA, align = "right")
 lag(x$Cumulative.Number.of.Positives, 7)

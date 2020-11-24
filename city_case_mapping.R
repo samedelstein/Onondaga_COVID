@@ -1,4 +1,5 @@
 library(jsonlite)
+library(lubridate)
 
 city_case_mapping_old <- read.csv("data/city_case_mapping.csv")
 City_case_mapping <- fromJSON(paste0("https://services3.arcgis.com/6QuzuucBh0MLJk7u/arcgis/rest/services/City_case_mapping_",format(Sys.Date(), "%B_%d"),"/FeatureServer/1/query?f=json&where=OBJECTID%3E187&returnGeometry=false&spatialRel=esriSpatialRelIntersects&outFields=*&resultOffset=0&resultRecordCount=4000&resultType=standard&cacheHint=true"))
@@ -26,7 +27,7 @@ city_cases_rolling <- city_case_mapping_df_new %>%
   geom_line(aes(DATE, Last.7.Days.Mean, group = 1, color = 'Rolling.7.Day.Positives'), size = 2) +
   geom_hline(aes(yintercept = max(Last.7.Days.Mean, na.rm = TRUE)), alpha = .5, color = 'red', linetype = 'dashed') +
   labs(title = "Positive Tests in the City of Syracuse with Rolling Average",
-       subtitle = paste("Data as of", max(county_case_mapping_df_new$DATE), sep = " "),
+       subtitle = paste("Data as of", max(city_case_mapping_df_new$DATE), sep = " "),
        caption = "Source: covid19.ongov.net/data",
        x = "",
        y = "Confirmed Cases",
