@@ -177,5 +177,3 @@ cases_by_week_county_viz <- ggplot(cases_by_week_county, aes(week_number, sum_ca
         axis.text.x = element_text(angle = 90)) 
 ggsave("/Users/samedelstein/Onondaga_COVID/visualizations/cases_by_week_county_viz.jpg", plot = cases_by_week_county_viz, width = 10, height = 7)
 
-
-

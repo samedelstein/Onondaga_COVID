@@ -12,3 +12,4 @@ write.csv(County_cases_by_municipality_new, "data/County_cases_by_municipality.c
 
 ggplot(County_cases_by_municipality_new, aes(Date, RATELABEL, group = MUNI, color = MUNI)) +
   geom_line()
+

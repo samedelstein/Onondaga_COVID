@@ -5,7 +5,7 @@ library(gridExtra)
 library(zoo)
 library(ggthemes)
 
-df <- read.csv("https://health.data.ny.gov/api/views/xdss-u53e/rows.csv?accessType=DOWNLOAD", stringsAsFactors = FALSE)
+State_Covid <- read.csv("https://health.data.ny.gov/api/views/xdss-u53e/rows.csv?accessType=DOWNLOAD", stringsAsFactors = FALSE)
 
 Cumulative_Positives_State <- ggplot(df, aes(Test.Date, Cumulative.Number.of.Positives, group = County)) +
   geom_line(color = "grey") +
@@ -18,7 +18,7 @@ Cumulative_Tests_State <- ggplot(df, aes(Test.Date, Cumulative.Number.of.Tests.P
   geom_line(data = filter(df, County == "Onondaga"), aes(Test.Date, Cumulative.Number.of.Tests.Performed, group = County), color = "red")+
   #scale_y_log10()+
   ggthemes::theme_fivethirtyeight()
-x <- df %>%
+x <- State_Covid %>%
   filter(County == "Onondaga") %>%
   mutate(Test.Date = as.Date(Test.Date, "%m/%d/%Y"),
          Percent.Change = round(((Cumulative.Number.of.Positives - lag(Cumulative.Number.of.Positives, 1) )/lag(Cumulative.Number.of.Positives, 1))*100),
@@ -40,7 +40,8 @@ x <- df %>%
          Last.28.Days.Tests = Cumulative.Number.of.Tests.Performed - lag(Cumulative.Number.of.Tests.Performed,28),
          Last.14.Days.Tests = Cumulative.Number.of.Tests.Performed - lag(Cumulative.Number.of.Tests.Performed,14),
          Last.7.Days.Tests = Cumulative.Number.of.Tests.Performed - lag(Cumulative.Number.of.Tests.Performed,7),
-         rollmean = zoo::rollmean(New.Positives, k = 7, fill = NA, align = "right"))
+         Roll.Last.7.Days.Cases = zoo::rollmean(New.Positives, k = 7, fill = NA, align = "right"),
+         Roll.Last.7.Days.Tests = zoo::rollmean(Total.Number.of.Tests.Performed, k = 7, fill = NA, align = "right"))
 
 zoo::rollmean(x$New.Positives, k = 7, fill = NA, align = "right")
 lag(x$Cumulative.Number.of.Positives, 7)
@@ -245,3 +246,8 @@ DaysToReach1000Cases <- ggplot(timeto1000, aes(factor(by1000), days)) +
   theme(legend.position = "none",
         axis.text.x = element_text(angle = 90)) 
 ggsave("/Users/samedelstein/Onondaga_COVID/visualizations/DaysToReach1000Cases.jpg", plot = DaysToReach1000Cases, width = 10, height = 7)
+
+
+
+
+
