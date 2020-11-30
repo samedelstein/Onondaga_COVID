@@ -5,7 +5,7 @@ library(tidyverse)
 library(data.table)
 
 #County Hospitalizations
-data_list <- read_html('https://datawrapper.dwcdn.net/I4IZD/120/') %>%  #Need to check to see how often url changes
+data_list <- read_html('https://datawrapper.dwcdn.net/I4IZD/122/') %>%  #Need to check to see how often url changes
   html_node(xpath=".//script[contains(., 'visJSON')]") %>% # find the javascript section with the data
   html_text() %>% # get that section
   stri_split_lines() %>% # split into lines so we can target the actual data element
@@ -101,8 +101,63 @@ new_COVID_Hospitalizations_CountyData <- ggplot(df, aes(Date, `New admissions` )
         axis.text.x = element_text(angle = 90)) 
 ggsave("/Users/samedelstein/Onondaga_COVID/visualizations/new_COVID_Hospitalizations_CountyData.jpg", plot = new_COVID_Hospitalizations_CountyData, width = 10, height = 7)
 
+colors_Total <- c(
+  'Total.Hospitalized' = '#d7191c',
+  'Total.Critical.Condition' = '#fdae61')
+
+rolling_hospitalizations_viz <- df %>%
+  mutate(Last.7.Days.Mean_County = zoo::rollmean(`Total Hospitalized`, k = 7, fill = NA, align = "right"),
+         Last.7.Days.Critical_County = zoo::rollmean(`Total Critical Condition`, k = 7, fill = NA, align = "right")) %>%
+  ggplot() +
+  geom_col(aes(Date, `Total Hospitalized`, fill = 'Total.Hospitalized'), alpha = .5 ) +
+  geom_col(aes(Date, `Total Critical Condition`, fill = 'Total.Critical.Condition'), alpha = .5) +
+  geom_line(aes(Date,Last.7.Days.Mean_County, color = 'Total.Hospitalized')) +
+  geom_line(aes(Date,Last.7.Days.Critical_County, color = 'Total.Critical.Condition')) +
+  labs(title = "COVID-19 Hospitalizations in Onondaga County",
+       subtitle = paste("Data as of", max(x$Test.Date), sep = " "),
+       caption = "Source: covid19.ongov.net/data",
+       x = "",
+       y = "Hospitalizations",
+       color = '') +
+  ggthemes::theme_economist() +
+  theme(axis.text.x = element_text(angle = 90))+
+  theme(legend.title = element_blank())
+ggsave("/Users/samedelstein/Onondaga_COVID/visualizations/rolling_hospitalizations_viz.jpg", plot = rolling_hospitalizations_viz, width = 10, height = 7)
 
 
+
+hospitalizations_by_week <- df %>%
+  mutate(week = week(Date)) %>%
+  group_by(week) %>%
+  summarise(sum_total_hospitalized = sum(`Total Hospitalized`),
+            sum_total_critical_condition = sum(`Total Critical Condition`))
+
+hospitalizations_by_week_viz <-   ggplot(hospitalizations_by_week) +
+  geom_col(aes(week, sum_total_hospitalized, fill = 'Total.Hospitalized'), alpha= .5) +
+  geom_col(aes(week, sum_total_critical_condition, fill = 'Total.Critical.Condition'), alpha = .5) +
+  geom_text(
+    aes(label = paste0(sum_total_hospitalized), x = week, y = sum_total_hospitalized + 0.1),
+    position = position_dodge(0.9),
+    vjust = -.5
+  ) +
+  geom_text(
+    aes(label = paste0(sum_total_critical_condition), x = week, y = sum_total_critical_condition + 0.1),
+    position = position_dodge(0.9),
+    vjust = -.5
+  ) +
+    labs(title = "COVID-19 Hospitalizations in Onondaga County",
+         subtitle = paste("Data as of", max(x$Test.Date), sep = " "),
+         caption = "Source: covid19.ongov.net/data",
+         x = "",
+         y = "Hospitalizations",
+         color = '') +
+  scale_color_manual(values = colors_Total) +
+  scale_fill_manual(values = colors_Total)+
+    ggthemes::theme_economist() +
+    theme(axis.text.x = element_text(angle = 90))+
+    theme(legend.title = element_blank())
+  ggsave("/Users/samedelstein/Onondaga_COVID/visualizations/hospitalizations_by_week_viz.jpg", plot = hospitalizations_by_week_viz, width = 10, height = 7)
+  
 
 merge(df, county_case_mapping_df_new, by.x = 'Date', by.y = 'DATE') %>%
   ggplot() +

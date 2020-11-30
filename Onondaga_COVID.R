@@ -41,7 +41,41 @@ x <- State_Covid %>%
          Last.14.Days.Tests = Cumulative.Number.of.Tests.Performed - lag(Cumulative.Number.of.Tests.Performed,14),
          Last.7.Days.Tests = Cumulative.Number.of.Tests.Performed - lag(Cumulative.Number.of.Tests.Performed,7),
          Roll.Last.7.Days.Cases = zoo::rollmean(New.Positives, k = 7, fill = NA, align = "right"),
-         Roll.Last.7.Days.Tests = zoo::rollmean(Total.Number.of.Tests.Performed, k = 7, fill = NA, align = "right"))
+         Roll.Last.7.Days.Tests = zoo::rollmean(Total.Number.of.Tests.Performed, k = 7, fill = NA, align = "right"),
+         Roll.Percent.Positive.7.days = (Roll.Last.7.Days.Cases/Roll.Last.7.Days.Tests)*100)
+
+x %>%
+  mutate(week = week(Test.Date)) %>%
+  group_by(week) %>%
+  summarise(sumtests = sum(Total.Number.of.Tests.Performed)) %>%
+ggplot(aes(week, sumtests)) +
+  geom_col()
+
+
+Percent_positive_by_week_viz <- x %>%
+  mutate(week = week(Test.Date)) %>%
+  group_by(week) %>%
+  summarise(case_weekly_total = sum(New.Positives),
+            test_weekly_total = sum(Total.Number.of.Tests.Performed),
+            weekly_percent_positive = (case_weekly_total/test_weekly_total)*100) %>%
+  ggplot(aes(week, weekly_percent_positive)) +
+  geom_col(fill = 'steelblue') +
+  geom_text(
+    aes(label = paste0(round(weekly_percent_positive,1)), x = week, y = weekly_percent_positive + 0.1),
+    position = position_dodge(0.9),
+    vjust = -.5
+  ) +
+  labs(title = "COVID-19 Hospitalizations in Onondaga County",
+       subtitle = paste("Data as of", max(x$Test.Date), sep = " "),
+       caption = "Source: data.ny.gov",
+       x = "",
+       y = "Percent Positive",
+       color = '')  +
+  ggthemes::theme_economist() +
+  theme(axis.text.x = element_text(angle = 90))+
+  theme(legend.title = element_blank())
+ggsave("/Users/samedelstein/Onondaga_COVID/visualizations/Percent_positive_by_week_viz.jpg", plot = Percent_positive_by_week_viz, width = 10, height = 7)
+
 
 zoo::rollmean(x$New.Positives, k = 7, fill = NA, align = "right")
 lag(x$Cumulative.Number.of.Positives, 7)
@@ -143,6 +177,22 @@ ggPercent <- ggplot(x) +
   ggthemes::theme_economist() +
   theme(axis.text.x = element_text(angle = 90))
 ggsave("/Users/samedelstein/Onondaga_COVID/visualizations/Percent Positive Cases in Onondaga County.jpg", plot = ggPercent, width = 10, height = 7)
+
+
+Percent_positive_viz <- ggplot(x) +
+  geom_point(aes(Test.Date, Percent.Positive*100), alpha = .5) +
+  geom_line(aes(Test.Date, Roll.Percent.Positive.7.days)) +
+  labs(title = "Percent Positive COVID Cases with Rolling Average in Onondaga County",
+       subtitle = paste("Data as of", max(x$Test.Date), sep = " "),
+       caption = "Source: data.ny.gov",
+       x = "",
+       y = "Percent Positive Cases",
+       color = '') +
+  scale_x_date(date_breaks = "1 week", date_labels = "%m/%d") +
+  scale_color_manual(values = colors_Percent) +
+  ggthemes::theme_economist() +
+  theme(axis.text.x = element_text(angle = 90))
+ggsave("/Users/samedelstein/Onondaga_COVID/visualizations/Percent_positive_viz.jpg", plot = Percent_positive_viz, width = 10, height = 7)
 
 
 
