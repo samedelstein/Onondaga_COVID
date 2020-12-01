@@ -4,7 +4,7 @@ library(RCurl)
 library(ggrepel)
 
 
-county_case_mapping_old <- read.csv("data/county_case_mapping.csv")
+county_case_mapping_old <- read.csv("data/county_case_mapping.csv",stringsAsFactors = FALSE)
 
 
 (max(county_case_mapping_old$CONFIRMED)/460528) * 100000
@@ -16,10 +16,16 @@ duprows <- rownames(county_case_mapping_old) %in% rownames(county_case_mapping_d
 county_case_mapping_df_new <- data.frame(rbind(county_case_mapping_df, county_case_mapping_old[!duprows,]))
 county_case_mapping_df_new <- county_case_mapping_df_new %>% 
   mutate(new_cases = CONFIRMED - lag(CONFIRMED,1),
+         new_deaths = DEATHS - lag(DEATHS,1),
          DATE = as.Date(paste0(county_case_mapping_df_new$DATE, '-', year(Sys.Date())), '%B%d-%Y'))
 write.csv(county_case_mapping_df_new, "data/county_case_mapping.csv", row.names = FALSE)
 
-
+county_case_mapping_old %>%
+  mutate(month = month(DATE),
+         new_deaths = DEATHS - lag(DEATHS,1)) %>%
+  group_by(month) %>%
+  summarise(sum_deaths = sum(new_deaths, na.rm = TRUE),
+            sum_cases = sum(new_cases, na.rm = TRUE))
 
 
 colors_Positives <- c(
