@@ -43,6 +43,7 @@ x <- State_Covid %>%
          Roll.Last.7.Days.Cases = zoo::rollmean(New.Positives, k = 7, fill = NA, align = "right"),
          Roll.Last.7.Days.Tests = zoo::rollmean(Total.Number.of.Tests.Performed, k = 7, fill = NA, align = "right"),
          Roll.Percent.Positive.7.days = (Roll.Last.7.Days.Cases/Roll.Last.7.Days.Tests)*100)
+write.csv(x, "data/State_Onondaga_COVID.csv", row.names = FALSE)
 
 x %>%
   mutate(week = week(Test.Date)) %>%
@@ -238,9 +239,13 @@ ggsave("/Users/samedelstein/Onondaga_COVID/visualizations/Positive Cases per 100
 
 write.csv(x, "data/Onondaga_COVID_data.csv", row.names = FALSE)
 
-cuts <- data.frame(Ref = c("SU Students Return", "SCSD Remote \nLearning Starts", "SCSD Hybrid \nLearning Starts", "Halloween"),
-                   vals = c(as.Date('2020-08-17'),as.Date('2020-09-14'), as.Date('2020-10-05'), as.Date('2020-10-31')),
-                   yvals = c(100,50,100,200),
+cuts <- data.frame(Ref = c("SU Students Return", "County In-Person &\n SCSD Remote Schooling \nStart", "SCSD Hybrid \nLearning Starts", "Halloween", 'Thanksgiving'),
+                   vals = c(as.Date('2020-08-17'),as.Date('2020-09-14'), as.Date('2020-10-05'), as.Date('2020-10-31'), as.Date('2020-11-26')),
+                   yvals = c(100,50,100,200,220),
+                   xmin = as.Date('2020-09-09'),
+                   xmax = as.Date('2020-09-14'),
+                   ymin = 0,
+                   ymax = 250,
                    stringsAsFactors = FALSE)
 
 
@@ -299,5 +304,10 @@ ggsave("/Users/samedelstein/Onondaga_COVID/visualizations/DaysToReach1000Cases.j
 
 
 
+head(x)
 
-
+x %>%
+  mutate(month = month(Test.Date)) %>%
+  group_by(month) %>%
+  summarise(sum_cases = sum(New.Positives),
+            sum_tests = sum(Total.Number.of.Tests.Performed))

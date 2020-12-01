@@ -78,9 +78,9 @@ ggsave("/Users/samedelstein/Onondaga_COVID/visualizations/DaysToReach1000Cases_C
 
 
 
-cuts <- data.frame(Ref = c("SU Students Return", "County In-Person &\n SCSD Remote Schooling \nStart", "SCSD Hybrid \nLearning Starts", "Halloween"),
-                   vals = c(as.Date('2020-08-17'),as.Date('2020-09-14'), as.Date('2020-10-05'), as.Date('2020-10-31')),
-                   yvals = c(100,50,100,200),
+cuts <- data.frame(Ref = c("SU Students Return", "County In-Person &\n SCSD Remote Schooling \nStart", "SCSD Hybrid \nLearning Starts", "Halloween", 'Thanksgiving'),
+                   vals = c(as.Date('2020-08-17'),as.Date('2020-09-14'), as.Date('2020-10-05'), as.Date('2020-10-31'), as.Date('2020-11-26')),
+                   yvals = c(100,50,100,200,220),
                    xmin = as.Date('2020-09-09'),
                    xmax = as.Date('2020-09-14'),
                    ymin = 0,

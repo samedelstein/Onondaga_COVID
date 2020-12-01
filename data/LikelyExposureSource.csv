@@ -1,267 +1,1282 @@
 "MMWR.Week","Type","Count"
-"Week 9: 2/23-2/29","Community..Unknown.Source","1"
-"Week 10: 3/1-3/7","Community..Unknown.Source","2"
-"Week 11: 3/8-3/14","Community..Unknown.Source","26"
-"Week 12 : 3/15-3/21","Community..Unknown.Source","103"
-"Week 13: 3/22-3/28","Community..Unknown.Source","121"
-"Week 14: 3/29-4/4","Community..Unknown.Source","82"
-"Week 15: 4/5-4/11","Community..Unknown.Source","68"
-"Week 16: 4/12-4/18","Community..Unknown.Source","84"
-"Week 17: 4/19-4/25","Community..Unknown.Source","86"
-"Week 18: 4/26-5/2","Community..Unknown.Source","103"
-"Week 19: 5/3-5/9","Community..Unknown.Source","126"
-"Week 20: 5/10-5/16","Community..Unknown.Source","175"
-"Week 21: 5/17-5/23","Community..Unknown.Source","114"
-"Week 22: 5/24-5/30","Community..Unknown.Source","90"
-"Week 23: 5/31-6/6","Community..Unknown.Source","68"
-"Week 24: 6/7-6/13","Community..Unknown.Source","77"
-"Week 25: 6/14-6/20","Community..Unknown.Source","108"
-"Week 26: 6/21-6/27","Community..Unknown.Source","113"
-"Week 27: 6/28-7/4","Community..Unknown.Source","125"
-"Week 28: 7/5-7/11","Community..Unknown.Source","128"
-"Week 29: 7/12-18","Community..Unknown.Source","75"
-"Week 30: 7/19-7/25","Community..Unknown.Source","62"
-"Week 31: 7/26-8/1","Community..Unknown.Source","38"
-"Week 32: 8/2-8/8","Community..Unknown.Source","58"
-"Week 33: 8/9-8/15","Community..Unknown.Source","90"
-"Week 34: 8/16-8/22","Community..Unknown.Source","67"
-"Week 35: 8/23-8/29","Community..Unknown.Source","74"
-"Week 36: 8/30-9/5","Community..Unknown.Source","57"
-"Week 37: 9/6-9/12","Community..Unknown.Source","77"
-"Week 38: 9/13-9/19","Community..Unknown.Source","92"
-"Week 39: 9/20-9/26","Community..Unknown.Source","133"
-"Week 40: 9/27-10/3","Community..Unknown.Source","126"
-"Week 41: 10/4-10/10","Community..Unknown.Source","240"
-"Week 42: 10/11-10/17","Community..Unknown.Source","206"
-"Week 43: 10/18-10/24","Community..Unknown.Source","314"
-"Week 44: 10/24-10/31","Community..Unknown.Source","487"
-"Week 45: 11/1-11/7","Community..Unknown.Source","779"
-"Week 46: 11/8-11/14","Community..Unknown.Source","491"
-"Week 9: 2/23-2/29","Community..Known.Source","0"
-"Week 10: 3/1-3/7","Community..Known.Source","1"
-"Week 11: 3/8-3/14","Community..Known.Source","0"
-"Week 12 : 3/15-3/21","Community..Known.Source","6"
-"Week 13: 3/22-3/28","Community..Known.Source","11"
-"Week 14: 3/29-4/4","Community..Known.Source","21"
-"Week 15: 4/5-4/11","Community..Known.Source","45"
-"Week 16: 4/12-4/18","Community..Known.Source","62"
-"Week 17: 4/19-4/25","Community..Known.Source","120"
-"Week 18: 4/26-5/2","Community..Known.Source","139"
-"Week 19: 5/3-5/9","Community..Known.Source","140"
-"Week 20: 5/10-5/16","Community..Known.Source","131"
-"Week 21: 5/17-5/23","Community..Known.Source","136"
-"Week 22: 5/24-5/30","Community..Known.Source","93"
-"Week 23: 5/31-6/6","Community..Known.Source","67"
-"Week 24: 6/7-6/13","Community..Known.Source","19"
-"Week 25: 6/14-6/20","Community..Known.Source","21"
-"Week 26: 6/21-6/27","Community..Known.Source","23"
-"Week 27: 6/28-7/4","Community..Known.Source","24"
-"Week 28: 7/5-7/11","Community..Known.Source","59"
-"Week 29: 7/12-18","Community..Known.Source","14"
-"Week 30: 7/19-7/25","Community..Known.Source","9"
-"Week 31: 7/26-8/1","Community..Known.Source","16"
-"Week 32: 8/2-8/8","Community..Known.Source","2"
-"Week 33: 8/9-8/15","Community..Known.Source","8"
-"Week 34: 8/16-8/22","Community..Known.Source","5"
-"Week 35: 8/23-8/29","Community..Known.Source","6"
-"Week 36: 8/30-9/5","Community..Known.Source","5"
-"Week 37: 9/6-9/12","Community..Known.Source","4"
-"Week 38: 9/13-9/19","Community..Known.Source","1"
-"Week 39: 9/20-9/26","Community..Known.Source","1"
-"Week 40: 9/27-10/3","Community..Known.Source","5"
-"Week 41: 10/4-10/10","Community..Known.Source","7"
-"Week 42: 10/11-10/17","Community..Known.Source","8"
-"Week 43: 10/18-10/24","Community..Known.Source","6"
-"Week 44: 10/24-10/31","Community..Known.Source","7"
-"Week 45: 11/1-11/7","Community..Known.Source","25"
-"Week 46: 11/8-11/14","Community..Known.Source","15"
-"Week 9: 2/23-2/29","Household.Member","0"
-"Week 10: 3/1-3/7","Household.Member","2"
-"Week 11: 3/8-3/14","Household.Member","21"
-"Week 12 : 3/15-3/21","Household.Member","49"
-"Week 13: 3/22-3/28","Household.Member","19"
-"Week 14: 3/29-4/4","Household.Member","8"
-"Week 15: 4/5-4/11","Household.Member","2"
-"Week 16: 4/12-4/18","Household.Member","4"
-"Week 17: 4/19-4/25","Household.Member","2"
-"Week 18: 4/26-5/2","Household.Member","2"
-"Week 19: 5/3-5/9","Household.Member","1"
-"Week 20: 5/10-5/16","Household.Member","3"
-"Week 21: 5/17-5/23","Household.Member","1"
-"Week 22: 5/24-5/30","Household.Member","0"
-"Week 23: 5/31-6/6","Household.Member","0"
-"Week 24: 6/7-6/13","Household.Member","2"
-"Week 25: 6/14-6/20","Household.Member","6"
-"Week 26: 6/21-6/27","Household.Member","15"
-"Week 27: 6/28-7/4","Household.Member","14"
-"Week 28: 7/5-7/11","Household.Member","19"
-"Week 29: 7/12-18","Household.Member","24"
-"Week 30: 7/19-7/25","Household.Member","13"
-"Week 31: 7/26-8/1","Household.Member","17"
-"Week 32: 8/2-8/8","Household.Member","8"
-"Week 33: 8/9-8/15","Household.Member","18"
-"Week 34: 8/16-8/22","Household.Member","13"
-"Week 35: 8/23-8/29","Household.Member","14"
-"Week 36: 8/30-9/5","Household.Member","20"
-"Week 37: 9/6-9/12","Household.Member","10"
-"Week 38: 9/13-9/19","Household.Member","20"
-"Week 39: 9/20-9/26","Household.Member","15"
-"Week 40: 9/27-10/3","Household.Member","10"
-"Week 41: 10/4-10/10","Household.Member","24"
-"Week 42: 10/11-10/17","Household.Member","32"
-"Week 43: 10/18-10/24","Household.Member","29"
-"Week 44: 10/24-10/31","Household.Member","36"
-"Week 45: 11/1-11/7","Household.Member","41"
-"Week 46: 11/8-11/14","Household.Member","20"
-"Week 9: 2/23-2/29","Travel","0\"
-"Week 10: 3/1-3/7","Travel","0\"
-"Week 11: 3/8-3/14","Travel","0\"
-"Week 12 : 3/15-3/21","Travel","1\"
-"Week 13: 3/22-3/28","Travel","1\"
-"Week 14: 3/29-4/4","Travel","1\"
-"Week 15: 4/5-4/11","Travel","2\"
-"Week 16: 4/12-4/18","Travel","3\"
-"Week 17: 4/19-4/25","Travel","0\"
-"Week 18: 4/26-5/2","Travel","4\"
-"Week 19: 5/3-5/9","Travel","7\"
-"Week 20: 5/10-5/16","Travel","4\"
-"Week 21: 5/17-5/23","Travel","12\"
-"Week 22: 5/24-5/30","Travel","7\"
-"Week 23: 5/31-6/6","Travel","5\"
-"Week 24: 6/7-6/13","Travel","7\"
-"Week 25: 6/14-6/20","Travel","11\"
-"Week 26: 6/21-6/27","Travel","8\"
-"Week 27: 6/28-7/4","Travel","1\"
-"Week 28: 7/5-7/11","Travel","2\"
-"Week 29: 7/12-18","Travel","1\"
-"Week 30: 7/19-7/25","Travel","0\"
-"Week 31: 7/26-8/1","Travel","1\"
-"Week 32: 8/2-8/8","Travel","1\"
-"Week 33: 8/9-8/15","Travel","4\"
-"Week 34: 8/16-8/22","Travel","1\"
-"Week 35: 8/23-8/29","Travel","1\"
-"Week 36: 8/30-9/5","Travel","0\"
-"Week 37: 9/6-9/12","Travel","0\"
-"Week 38: 9/13-9/19","Travel","3\"
-"Week 39: 9/20-9/26","Travel","1\"
-"Week 40: 9/27-10/3","Travel","4\"
-"Week 41: 10/4-10/10","Travel","17\"
-"Week 42: 10/11-10/17","Travel","5\"
-"Week 43: 10/18-10/24","Travel","7\"
-"Week 44: 10/24-10/31","Travel","13\"
-"Week 45: 11/1-11/7","Travel","111\"
-"Week 46: 11/8-11/14","Travel","366\"
-"Week 9: 2/23-2/29","Senior.Facility",NA
-"Week 10: 3/1-3/7","Senior.Facility",NA
-"Week 11: 3/8-3/14","Senior.Facility",NA
-"Week 12 : 3/15-3/21","Senior.Facility",NA
-"Week 13: 3/22-3/28","Senior.Facility",NA
-"Week 14: 3/29-4/4","Senior.Facility",NA
-"Week 15: 4/5-4/11","Senior.Facility",NA
-"Week 16: 4/12-4/18","Senior.Facility",NA
-"Week 17: 4/19-4/25","Senior.Facility",NA
-"Week 18: 4/26-5/2","Senior.Facility",NA
-"Week 19: 5/3-5/9","Senior.Facility",NA
-"Week 20: 5/10-5/16","Senior.Facility",NA
-"Week 21: 5/17-5/23","Senior.Facility",NA
-"Week 22: 5/24-5/30","Senior.Facility",NA
-"Week 23: 5/31-6/6","Senior.Facility",NA
-"Week 24: 6/7-6/13","Senior.Facility",NA
-"Week 25: 6/14-6/20","Senior.Facility",NA
-"Week 26: 6/21-6/27","Senior.Facility",NA
-"Week 27: 6/28-7/4","Senior.Facility",NA
-"Week 28: 7/5-7/11","Senior.Facility",NA
-"Week 29: 7/12-18","Senior.Facility",NA
-"Week 30: 7/19-7/25","Senior.Facility",NA
-"Week 31: 7/26-8/1","Senior.Facility",NA
-"Week 32: 8/2-8/8","Senior.Facility",NA
-"Week 33: 8/9-8/15","Senior.Facility",NA
-"Week 34: 8/16-8/22","Senior.Facility",NA
-"Week 35: 8/23-8/29","Senior.Facility",NA
-"Week 36: 8/30-9/5","Senior.Facility",NA
-"Week 37: 9/6-9/12","Senior.Facility",NA
-"Week 38: 9/13-9/19","Senior.Facility",NA
-"Week 39: 9/20-9/26","Senior.Facility",NA
-"Week 40: 9/27-10/3","Senior.Facility",NA
-"Week 41: 10/4-10/10","Senior.Facility",NA
-"Week 42: 10/11-10/17","Senior.Facility",NA
-"Week 43: 10/18-10/24","Senior.Facility",NA
-"Week 44: 10/24-10/31","Senior.Facility",NA
-"Week 45: 11/1-11/7","Senior.Facility",NA
-"Week 46: 11/8-11/14","Senior.Facility",NA
-"Week 9: 2/23-2/29","Other.Congregate.Setting",NA
-"Week 10: 3/1-3/7","Other.Congregate.Setting",NA
-"Week 11: 3/8-3/14","Other.Congregate.Setting",NA
-"Week 12 : 3/15-3/21","Other.Congregate.Setting",NA
-"Week 13: 3/22-3/28","Other.Congregate.Setting",NA
-"Week 14: 3/29-4/4","Other.Congregate.Setting",NA
-"Week 15: 4/5-4/11","Other.Congregate.Setting",NA
-"Week 16: 4/12-4/18","Other.Congregate.Setting",NA
-"Week 17: 4/19-4/25","Other.Congregate.Setting",NA
-"Week 18: 4/26-5/2","Other.Congregate.Setting",NA
-"Week 19: 5/3-5/9","Other.Congregate.Setting",NA
-"Week 20: 5/10-5/16","Other.Congregate.Setting",NA
-"Week 21: 5/17-5/23","Other.Congregate.Setting",NA
-"Week 22: 5/24-5/30","Other.Congregate.Setting",NA
-"Week 23: 5/31-6/6","Other.Congregate.Setting",NA
-"Week 24: 6/7-6/13","Other.Congregate.Setting",NA
-"Week 25: 6/14-6/20","Other.Congregate.Setting",NA
-"Week 26: 6/21-6/27","Other.Congregate.Setting",NA
-"Week 27: 6/28-7/4","Other.Congregate.Setting",NA
-"Week 28: 7/5-7/11","Other.Congregate.Setting",NA
-"Week 29: 7/12-18","Other.Congregate.Setting",NA
-"Week 30: 7/19-7/25","Other.Congregate.Setting",NA
-"Week 31: 7/26-8/1","Other.Congregate.Setting",NA
-"Week 32: 8/2-8/8","Other.Congregate.Setting",NA
-"Week 33: 8/9-8/15","Other.Congregate.Setting",NA
-"Week 34: 8/16-8/22","Other.Congregate.Setting",NA
-"Week 35: 8/23-8/29","Other.Congregate.Setting",NA
-"Week 36: 8/30-9/5","Other.Congregate.Setting",NA
-"Week 37: 9/6-9/12","Other.Congregate.Setting",NA
-"Week 38: 9/13-9/19","Other.Congregate.Setting",NA
-"Week 39: 9/20-9/26","Other.Congregate.Setting",NA
-"Week 40: 9/27-10/3","Other.Congregate.Setting",NA
-"Week 41: 10/4-10/10","Other.Congregate.Setting",NA
-"Week 42: 10/11-10/17","Other.Congregate.Setting",NA
-"Week 43: 10/18-10/24","Other.Congregate.Setting",NA
-"Week 44: 10/24-10/31","Other.Congregate.Setting",NA
-"Week 45: 11/1-11/7","Other.Congregate.Setting",NA
-"Week 46: 11/8-11/14","Other.Congregate.Setting",NA
-"Week 9: 2/23-2/29","Unknown",NA
-"Week 10: 3/1-3/7","Unknown",NA
-"Week 11: 3/8-3/14","Unknown",NA
-"Week 12 : 3/15-3/21","Unknown",NA
-"Week 13: 3/22-3/28","Unknown",NA
-"Week 14: 3/29-4/4","Unknown",NA
-"Week 15: 4/5-4/11","Unknown",NA
-"Week 16: 4/12-4/18","Unknown",NA
-"Week 17: 4/19-4/25","Unknown",NA
-"Week 18: 4/26-5/2","Unknown",NA
-"Week 19: 5/3-5/9","Unknown",NA
-"Week 20: 5/10-5/16","Unknown",NA
-"Week 21: 5/17-5/23","Unknown",NA
-"Week 22: 5/24-5/30","Unknown",NA
-"Week 23: 5/31-6/6","Unknown",NA
-"Week 24: 6/7-6/13","Unknown",NA
-"Week 25: 6/14-6/20","Unknown",NA
-"Week 26: 6/21-6/27","Unknown",NA
-"Week 27: 6/28-7/4","Unknown",NA
-"Week 28: 7/5-7/11","Unknown",NA
-"Week 29: 7/12-18","Unknown",NA
-"Week 30: 7/19-7/25","Unknown",NA
-"Week 31: 7/26-8/1","Unknown",NA
-"Week 32: 8/2-8/8","Unknown",NA
-"Week 33: 8/9-8/15","Unknown",NA
-"Week 34: 8/16-8/22","Unknown",NA
-"Week 35: 8/23-8/29","Unknown",NA
-"Week 36: 8/30-9/5","Unknown",NA
-"Week 37: 9/6-9/12","Unknown",NA
-"Week 38: 9/13-9/19","Unknown",NA
-"Week 39: 9/20-9/26","Unknown",NA
-"Week 40: 9/27-10/3","Unknown",NA
-"Week 41: 10/4-10/10","Unknown",NA
-"Week 42: 10/11-10/17","Unknown",NA
-"Week 43: 10/18-10/24","Unknown",NA
-"Week 44: 10/24-10/31","Unknown",NA
-"Week 45: 11/1-11/7","Unknown",NA
-"Week 46: 11/8-11/14","Unknown",NA
+"6/1/20","Community..Unknown.Source","75"
+"6/2/20","Community..Unknown.Source","71"
+"6/3/20","Community..Unknown.Source","74"
+"6/4/20","Community..Unknown.Source","69"
+"6/5/20","Community..Unknown.Source","64"
+"6/6/20","Community..Unknown.Source","67"
+"6/7/20","Community..Unknown.Source","69"
+"6/8/20","Community..Unknown.Source","70"
+"6/9/20","Community..Unknown.Source","60"
+"6/10/20","Community..Unknown.Source","57"
+"6/11/20","Community..Unknown.Source","57"
+"6/12/20","Community..Unknown.Source","55"
+"6/13/20","Community..Unknown.Source","52"
+"6/14/20","Community..Unknown.Source","49"
+"6/15/20","Community..Unknown.Source","48"
+"6/16/20","Community..Unknown.Source","44"
+"6/17/20","Community..Unknown.Source","44"
+"6/18/20","Community..Unknown.Source","42"
+"6/19/20","Community..Unknown.Source","41"
+"6/20/20","Community..Unknown.Source","43"
+"6/21/20","Community..Unknown.Source","43"
+"6/22/20","Community..Unknown.Source","42"
+"6/23/20","Community..Unknown.Source","39"
+"6/24/20","Community..Unknown.Source","40"
+"6/25/20","Community..Unknown.Source","37"
+"6/26/20","Community..Unknown.Source","38"
+"6/27/20","Community..Unknown.Source","33"
+"6/28/20","Community..Unknown.Source","35"
+"6/29/20","Community..Unknown.Source","33"
+"6/30/20","Community..Unknown.Source","31"
+"7/1/20","Community..Unknown.Source","31"
+"7/2/20","Community..Unknown.Source","30"
+"7/3/20","Community..Unknown.Source","29"
+"7/4/20","Community..Unknown.Source","28"
+"7/5/20","Community..Unknown.Source","28"
+"7/6/20","Community..Unknown.Source","36"
+"7/7/20","Community..Unknown.Source","49"
+"7/8/20","Community..Unknown.Source","49"
+"7/9/20","Community..Unknown.Source","51"
+"7/10/20","Community..Unknown.Source","50"
+"7/11/20","Community..Unknown.Source","49"
+"7/12/20","Community..Unknown.Source","47"
+"7/13/20","Community..Unknown.Source","48"
+"7/14/20","Community..Unknown.Source","48"
+"7/15/20","Community..Unknown.Source","46"
+"7/16/20","Community..Unknown.Source","46"
+"7/17/20","Community..Unknown.Source","43"
+"7/18/20","Community..Unknown.Source","43"
+"7/19/20","Community..Unknown.Source","42"
+"7/20/20","Community..Unknown.Source","43"
+"7/21/20","Community..Unknown.Source","43"
+"7/22/20","Community..Unknown.Source","45"
+"7/23/20","Community..Unknown.Source","41"
+"7/24/20","Community..Unknown.Source","40"
+"7/25/20","Community..Unknown.Source","38"
+"7/26/20","Community..Unknown.Source","38"
+"7/27/20","Community..Unknown.Source","37"
+"7/28/20","Community..Unknown.Source","33"
+"7/29/20","Community..Unknown.Source","31"
+"7/30/20","Community..Unknown.Source","28"
+"7/31/20","Community..Unknown.Source","24"
+"8/1/20","Community..Unknown.Source","20"
+"8/2/20","Community..Unknown.Source","20"
+"8/3/20","Community..Unknown.Source","19"
+"8/4/20","Community..Unknown.Source","18"
+"8/5/20","Community..Unknown.Source","16"
+"8/6/20","Community..Unknown.Source","14"
+"8/7/20","Community..Unknown.Source","14"
+"8/8/20","Community..Unknown.Source","17"
+"8/9/20","Community..Unknown.Source","16"
+"8/10/20","Community..Unknown.Source","15"
+"8/11/20","Community..Unknown.Source","16"
+"8/12/20","Community..Unknown.Source","16"
+"8/13/20","Community..Unknown.Source","17"
+"8/14/20","Community..Unknown.Source","16"
+"8/15/20","Community..Unknown.Source","20"
+"8/16/20","Community..Unknown.Source","21"
+"8/17/20","Community..Unknown.Source","20"
+"8/18/20","Community..Unknown.Source","14"
+"8/19/20","Community..Unknown.Source","13"
+"8/20/20","Community..Unknown.Source","13"
+"8/21/20","Community..Unknown.Source","11"
+"8/22/20","Community..Unknown.Source","14"
+"8/23/20","Community..Unknown.Source","16"
+"8/24/20","Community..Unknown.Source","17"
+"8/25/20","Community..Unknown.Source","15"
+"8/26/20","Community..Unknown.Source","14"
+"8/27/20","Community..Unknown.Source","13"
+"8/28/20","Community..Unknown.Source","13"
+"8/29/20","Community..Unknown.Source","15"
+"8/30/20","Community..Unknown.Source","17"
+"8/31/20","Community..Unknown.Source","15"
+"9/1/20","Community..Unknown.Source","15"
+"9/2/20","Community..Unknown.Source","13"
+"9/3/20","Community..Unknown.Source","14"
+"9/4/20","Community..Unknown.Source","13"
+"9/5/20","Community..Unknown.Source","12"
+"9/6/20","Community..Unknown.Source","15"
+"9/7/20","Community..Unknown.Source","15"
+"9/8/20","Community..Unknown.Source","16"
+"9/9/20","Community..Unknown.Source","13"
+"9/10/20","Community..Unknown.Source","13"
+"9/11/20","Community..Unknown.Source","9"
+"9/12/20","Community..Unknown.Source","9"
+"9/13/20","Community..Unknown.Source","9"
+"9/14/20","Community..Unknown.Source","10"
+"9/15/20","Community..Unknown.Source","11"
+"9/16/20","Community..Unknown.Source","10"
+"9/17/20","Community..Unknown.Source","12"
+"9/18/20","Community..Unknown.Source","11"
+"9/19/20","Community..Unknown.Source","10"
+"9/20/20","Community..Unknown.Source","9"
+"9/21/20","Community..Unknown.Source","8"
+"9/22/20","Community..Unknown.Source","8"
+"9/23/20","Community..Unknown.Source","9"
+"9/24/20","Community..Unknown.Source","10"
+"9/25/20","Community..Unknown.Source","11"
+"9/26/20","Community..Unknown.Source","9"
+"9/27/20","Community..Unknown.Source","11"
+"9/28/20","Community..Unknown.Source","12"
+"9/29/20","Community..Unknown.Source","15"
+"9/30/20","Community..Unknown.Source","17"
+"10/1/20","Community..Unknown.Source","20"
+"10/2/20","Community..Unknown.Source","22"
+"10/3/20","Community..Unknown.Source","19"
+"10/4/20","Community..Unknown.Source","17"
+"10/5/20","Community..Unknown.Source","17"
+"10/6/20","Community..Unknown.Source","18"
+"10/7/20","Community..Unknown.Source","16"
+"10/8/20","Community..Unknown.Source","15"
+"10/9/20","Community..Unknown.Source","16"
+"10/10/20","Community..Unknown.Source","16"
+"10/11/20","Community..Unknown.Source","18"
+"10/12/20","Community..Unknown.Source","19"
+"10/13/20","Community..Unknown.Source","19"
+"10/14/20","Community..Unknown.Source","16"
+"10/15/20","Community..Unknown.Source","14"
+"10/16/20","Community..Unknown.Source","14"
+"10/17/20","Community..Unknown.Source","15"
+"10/18/20","Community..Unknown.Source","16"
+"10/19/20","Community..Unknown.Source","19"
+"10/20/20","Community..Unknown.Source","21"
+"10/21/20","Community..Unknown.Source","23"
+"10/22/20","Community..Unknown.Source","25"
+"10/23/20","Community..Unknown.Source","26"
+"10/24/20","Community..Unknown.Source","24"
+"10/25/20","Community..Unknown.Source","24"
+"10/26/20","Community..Unknown.Source","25"
+"10/27/20","Community..Unknown.Source","26"
+"10/28/20","Community..Unknown.Source","29"
+"10/29/20","Community..Unknown.Source","26"
+"10/30/20","Community..Unknown.Source","24"
+"10/31/20","Community..Unknown.Source","21"
+"11/1/20","Community..Unknown.Source","23"
+"11/2/20","Community..Unknown.Source","26"
+"11/3/20","Community..Unknown.Source","30"
+"11/4/20","Community..Unknown.Source","38"
+"11/5/20","Community..Unknown.Source","42"
+"11/6/20","Community..Unknown.Source","49"
+"11/7/20","Community..Unknown.Source","50"
+"11/8/20","Community..Unknown.Source","50"
+"11/9/20","Community..Unknown.Source","49"
+"11/10/20","Community..Unknown.Source","50"
+"11/11/20","Community..Unknown.Source","53"
+"11/12/20","Community..Unknown.Source","58"
+"11/13/20","Community..Unknown.Source","63"
+"11/14/20","Community..Unknown.Source","61"
+"11/15/20","Community..Unknown.Source","65"
+"11/16/20","Community..Unknown.Source","74"
+"11/17/20","Community..Unknown.Source","75"
+"11/18/20","Community..Unknown.Source","80"
+"11/19/20","Community..Unknown.Source","84"
+"11/20/20","Community..Unknown.Source","92"
+"11/21/20","Community..Unknown.Source","102"
+"11/22/20","Community..Unknown.Source","102"
+"11/23/20","Community..Unknown.Source","107"
+"11/24/20","Community..Unknown.Source","112"
+"11/25/20","Community..Unknown.Source","116"
+"11/26/20","Community..Unknown.Source","119"
+"11/27/20","Community..Unknown.Source","124"
+"11/28/20","Community..Unknown.Source","132"
+"11/29/20","Community..Unknown.Source","132"
+"11/30/20","Community..Unknown.Source","145"
+"6/1/20","Community..Known.Source","1"
+"6/2/20","Community..Known.Source","2"
+"6/3/20","Community..Known.Source","5"
+"6/4/20","Community..Known.Source","2"
+"6/5/20","Community..Known.Source","5"
+"6/6/20","Community..Known.Source","8"
+"6/7/20","Community..Known.Source","4"
+"6/8/20","Community..Known.Source","7"
+"6/9/20","Community..Known.Source","5"
+"6/10/20","Community..Known.Source","4"
+"6/11/20","Community..Known.Source","5"
+"6/12/20","Community..Known.Source","5"
+"6/13/20","Community..Known.Source","4"
+"6/14/20","Community..Known.Source","3"
+"6/15/20","Community..Known.Source","2"
+"6/16/20","Community..Known.Source","0"
+"6/17/20","Community..Known.Source","2"
+"6/18/20","Community..Known.Source","1"
+"6/19/20","Community..Known.Source","2"
+"6/20/20","Community..Known.Source","3"
+"6/21/20","Community..Known.Source","2"
+"6/22/20","Community..Known.Source","3"
+"6/23/20","Community..Known.Source","2"
+"6/24/20","Community..Known.Source","4"
+"6/25/20","Community..Known.Source","2"
+"6/26/20","Community..Known.Source","6"
+"6/27/20","Community..Known.Source","0"
+"6/28/20","Community..Known.Source","4"
+"6/29/20","Community..Known.Source","2"
+"6/30/20","Community..Known.Source","4"
+"7/1/20","Community..Known.Source","5"
+"7/2/20","Community..Known.Source","2"
+"7/3/20","Community..Known.Source","1"
+"7/4/20","Community..Known.Source","4"
+"7/5/20","Community..Known.Source","2"
+"7/6/20","Community..Known.Source","11"
+"7/7/20","Community..Known.Source","14"
+"7/8/20","Community..Known.Source","6"
+"7/9/20","Community..Known.Source","7"
+"7/10/20","Community..Known.Source","3"
+"7/11/20","Community..Known.Source","4"
+"7/12/20","Community..Known.Source","2"
+"7/13/20","Community..Known.Source","4"
+"7/14/20","Community..Known.Source","7"
+"7/15/20","Community..Known.Source","2"
+"7/16/20","Community..Known.Source","2"
+"7/17/20","Community..Known.Source","2"
+"7/18/20","Community..Known.Source","1"
+"7/19/20","Community..Known.Source","2"
+"7/20/20","Community..Known.Source","2"
+"7/21/20","Community..Known.Source","3"
+"7/22/20","Community..Known.Source","4"
+"7/23/20","Community..Known.Source","0"
+"7/24/20","Community..Known.Source","2"
+"7/25/20","Community..Known.Source","2"
+"7/26/20","Community..Known.Source","2"
+"7/27/20","Community..Known.Source","1"
+"7/28/20","Community..Known.Source","2"
+"7/29/20","Community..Known.Source","1"
+"7/30/20","Community..Known.Source","4"
+"7/31/20","Community..Known.Source","2"
+"8/1/20","Community..Known.Source","2"
+"8/2/20","Community..Known.Source","1"
+"8/3/20","Community..Known.Source","0"
+"8/4/20","Community..Known.Source","0"
+"8/5/20","Community..Known.Source","0"
+"8/6/20","Community..Known.Source","1"
+"8/7/20","Community..Known.Source","0"
+"8/8/20","Community..Known.Source","3"
+"8/9/20","Community..Known.Source","1"
+"8/10/20","Community..Known.Source","0"
+"8/11/20","Community..Known.Source","1"
+"8/12/20","Community..Known.Source","2"
+"8/13/20","Community..Known.Source","3"
+"8/14/20","Community..Known.Source","3"
+"8/15/20","Community..Known.Source","5"
+"8/16/20","Community..Known.Source","4"
+"8/17/20","Community..Known.Source","1"
+"8/18/20","Community..Known.Source","1"
+"8/19/20","Community..Known.Source","1"
+"8/20/20","Community..Known.Source","1"
+"8/21/20","Community..Known.Source","1"
+"8/22/20","Community..Known.Source","3"
+"8/23/20","Community..Known.Source","2"
+"8/24/20","Community..Known.Source","3"
+"8/25/20","Community..Known.Source","1"
+"8/26/20","Community..Known.Source","1"
+"8/27/20","Community..Known.Source","1"
+"8/28/20","Community..Known.Source","3"
+"8/29/20","Community..Known.Source","3"
+"8/30/20","Community..Known.Source","2"
+"8/31/20","Community..Known.Source","0"
+"9/1/20","Community..Known.Source","3"
+"9/2/20","Community..Known.Source","1"
+"9/3/20","Community..Known.Source","2"
+"9/4/20","Community..Known.Source","2"
+"9/5/20","Community..Known.Source","0"
+"9/6/20","Community..Known.Source","4"
+"9/7/20","Community..Known.Source","0"
+"9/8/20","Community..Known.Source","1"
+"9/9/20","Community..Known.Source","0"
+"9/10/20","Community..Known.Source","0"
+"9/11/20","Community..Known.Source","0"
+"9/12/20","Community..Known.Source","1"
+"9/13/20","Community..Known.Source","3"
+"9/14/20","Community..Known.Source","2"
+"9/15/20","Community..Known.Source","2"
+"9/16/20","Community..Known.Source","0"
+"9/17/20","Community..Known.Source","2"
+"9/18/20","Community..Known.Source","1"
+"9/19/20","Community..Known.Source","0"
+"9/20/20","Community..Known.Source","1"
+"9/21/20","Community..Known.Source","0"
+"9/22/20","Community..Known.Source","2"
+"9/23/20","Community..Known.Source","1"
+"9/24/20","Community..Known.Source","1"
+"9/25/20","Community..Known.Source","2"
+"9/26/20","Community..Known.Source","2"
+"9/27/20","Community..Known.Source","3"
+"9/28/20","Community..Known.Source","2"
+"9/29/20","Community..Known.Source","4"
+"9/30/20","Community..Known.Source","2"
+"10/1/20","Community..Known.Source","5"
+"10/2/20","Community..Known.Source","4"
+"10/3/20","Community..Known.Source","1"
+"10/4/20","Community..Known.Source","1"
+"10/5/20","Community..Known.Source","1"
+"10/6/20","Community..Known.Source","2"
+"10/7/20","Community..Known.Source","0"
+"10/8/20","Community..Known.Source","2"
+"10/9/20","Community..Known.Source","3"
+"10/10/20","Community..Known.Source","1"
+"10/11/20","Community..Known.Source","2"
+"10/12/20","Community..Known.Source","2"
+"10/13/20","Community..Known.Source","4"
+"10/14/20","Community..Known.Source","0"
+"10/15/20","Community..Known.Source","3"
+"10/16/20","Community..Known.Source","3"
+"10/17/20","Community..Known.Source","2"
+"10/18/20","Community..Known.Source","1"
+"10/19/20","Community..Known.Source","3"
+"10/20/20","Community..Known.Source","4"
+"10/21/20","Community..Known.Source","5"
+"10/22/20","Community..Known.Source","5"
+"10/23/20","Community..Known.Source","3"
+"10/24/20","Community..Known.Source","1"
+"10/25/20","Community..Known.Source","1"
+"10/26/20","Community..Known.Source","2"
+"10/27/20","Community..Known.Source","3"
+"10/28/20","Community..Known.Source","5"
+"10/29/20","Community..Known.Source","3"
+"10/30/20","Community..Known.Source","2"
+"10/31/20","Community..Known.Source","3"
+"11/1/20","Community..Known.Source","3"
+"11/2/20","Community..Known.Source","5"
+"11/3/20","Community..Known.Source","6"
+"11/4/20","Community..Known.Source","9"
+"11/5/20","Community..Known.Source","6"
+"11/6/20","Community..Known.Source","9"
+"11/7/20","Community..Known.Source","8"
+"11/8/20","Community..Known.Source","6"
+"11/9/20","Community..Known.Source","8"
+"11/10/20","Community..Known.Source","9"
+"11/11/20","Community..Known.Source","10"
+"11/12/20","Community..Known.Source","9"
+"11/13/20","Community..Known.Source","14"
+"11/14/20","Community..Known.Source","7"
+"11/15/20","Community..Known.Source","10"
+"11/16/20","Community..Known.Source","15"
+"11/17/20","Community..Known.Source","12"
+"11/18/20","Community..Known.Source","12"
+"11/19/20","Community..Known.Source","20"
+"11/20/20","Community..Known.Source","20"
+"11/21/20","Community..Known.Source","20"
+"11/22/20","Community..Known.Source","12"
+"11/23/20","Community..Known.Source","15"
+"11/24/20","Community..Known.Source","17"
+"11/25/20","Community..Known.Source","12"
+"11/26/20","Community..Known.Source","14"
+"11/27/20","Community..Known.Source","20"
+"11/28/20","Community..Known.Source","19"
+"11/29/20","Community..Known.Source","8"
+"11/30/20","Community..Known.Source","26"
+"6/1/20","Household.Member","14"
+"6/2/20","Household.Member","13"
+"6/3/20","Household.Member","13"
+"6/4/20","Household.Member","12"
+"6/5/20","Household.Member","12"
+"6/6/20","Household.Member","14"
+"6/7/20","Household.Member","11"
+"6/8/20","Household.Member","13"
+"6/9/20","Household.Member","12"
+"6/10/20","Household.Member","12"
+"6/11/20","Household.Member","13"
+"6/12/20","Household.Member","14"
+"6/13/20","Household.Member","10"
+"6/14/20","Household.Member","8"
+"6/15/20","Household.Member","8"
+"6/16/20","Household.Member","8"
+"6/17/20","Household.Member","8"
+"6/18/20","Household.Member","7"
+"6/19/20","Household.Member","8"
+"6/20/20","Household.Member","9"
+"6/21/20","Household.Member","10"
+"6/22/20","Household.Member","9"
+"6/23/20","Household.Member","9"
+"6/24/20","Household.Member","9"
+"6/25/20","Household.Member","8"
+"6/26/20","Household.Member","8"
+"6/27/20","Household.Member","6"
+"6/28/20","Household.Member","5"
+"6/29/20","Household.Member","4"
+"6/30/20","Household.Member","4"
+"7/1/20","Household.Member","5"
+"7/2/20","Household.Member","5"
+"7/3/20","Household.Member","5"
+"7/4/20","Household.Member","5"
+"7/5/20","Household.Member","6"
+"7/6/20","Household.Member","4"
+"7/7/20","Household.Member","3"
+"7/8/20","Household.Member","3"
+"7/9/20","Household.Member","4"
+"7/10/20","Household.Member","4"
+"7/11/20","Household.Member","4"
+"7/12/20","Household.Member","4"
+"7/13/20","Household.Member","5"
+"7/14/20","Household.Member","4"
+"7/15/20","Household.Member","4"
+"7/16/20","Household.Member","5"
+"7/17/20","Household.Member","5"
+"7/18/20","Household.Member","6"
+"7/19/20","Household.Member","6"
+"7/20/20","Household.Member","7"
+"7/21/20","Household.Member","6"
+"7/22/20","Household.Member","6"
+"7/23/20","Household.Member","6"
+"7/24/20","Household.Member","5"
+"7/25/20","Household.Member","6"
+"7/26/20","Household.Member","5"
+"7/27/20","Household.Member","4"
+"7/28/20","Household.Member","4"
+"7/29/20","Household.Member","4"
+"7/30/20","Household.Member","4"
+"7/31/20","Household.Member","4"
+"8/1/20","Household.Member","3"
+"8/2/20","Household.Member","3"
+"8/3/20","Household.Member","3"
+"8/4/20","Household.Member","3"
+"8/5/20","Household.Member","3"
+"8/6/20","Household.Member","3"
+"8/7/20","Household.Member","3"
+"8/8/20","Household.Member","3"
+"8/9/20","Household.Member","4"
+"8/10/20","Household.Member","5"
+"8/11/20","Household.Member","4"
+"8/12/20","Household.Member","3"
+"8/13/20","Household.Member","2"
+"8/14/20","Household.Member","2"
+"8/15/20","Household.Member","3"
+"8/16/20","Household.Member","4"
+"8/17/20","Household.Member","4"
+"8/18/20","Household.Member","3"
+"8/19/20","Household.Member","2"
+"8/20/20","Household.Member","2"
+"8/21/20","Household.Member","1"
+"8/22/20","Household.Member","2"
+"8/23/20","Household.Member","3"
+"8/24/20","Household.Member","4"
+"8/25/20","Household.Member","3"
+"8/26/20","Household.Member","2"
+"8/27/20","Household.Member","2"
+"8/28/20","Household.Member","2"
+"8/29/20","Household.Member","1"
+"8/30/20","Household.Member","1"
+"8/31/20","Household.Member","1"
+"9/1/20","Household.Member","0"
+"9/2/20","Household.Member","0"
+"9/3/20","Household.Member","0"
+"9/4/20","Household.Member","0"
+"9/5/20","Household.Member","1"
+"9/6/20","Household.Member","1"
+"9/7/20","Household.Member","1"
+"9/8/20","Household.Member","0"
+"9/9/20","Household.Member","0"
+"9/10/20","Household.Member","0"
+"9/11/20","Household.Member","0"
+"9/12/20","Household.Member","0"
+"9/13/20","Household.Member","2"
+"9/14/20","Household.Member","2"
+"9/15/20","Household.Member","1"
+"9/16/20","Household.Member","1"
+"9/17/20","Household.Member","2"
+"9/18/20","Household.Member","2"
+"9/19/20","Household.Member","2"
+"9/20/20","Household.Member","1"
+"9/21/20","Household.Member","1"
+"9/22/20","Household.Member","1"
+"9/23/20","Household.Member","1"
+"9/24/20","Household.Member","1"
+"9/25/20","Household.Member","1"
+"9/26/20","Household.Member","1"
+"9/27/20","Household.Member","0"
+"9/28/20","Household.Member","0"
+"9/29/20","Household.Member","0"
+"9/30/20","Household.Member","0"
+"10/1/20","Household.Member","0"
+"10/2/20","Household.Member","1"
+"10/3/20","Household.Member","1"
+"10/4/20","Household.Member","1"
+"10/5/20","Household.Member","1"
+"10/6/20","Household.Member","1"
+"10/7/20","Household.Member","0"
+"10/8/20","Household.Member","1"
+"10/9/20","Household.Member","1"
+"10/10/20","Household.Member","1"
+"10/11/20","Household.Member","3"
+"10/12/20","Household.Member","4"
+"10/13/20","Household.Member","4"
+"10/14/20","Household.Member","4"
+"10/15/20","Household.Member","4"
+"10/16/20","Household.Member","4"
+"10/17/20","Household.Member","4"
+"10/18/20","Household.Member","5"
+"10/19/20","Household.Member","5"
+"10/20/20","Household.Member","6"
+"10/21/20","Household.Member","8"
+"10/22/20","Household.Member","9"
+"10/23/20","Household.Member","8"
+"10/24/20","Household.Member","7"
+"10/25/20","Household.Member","6"
+"10/26/20","Household.Member","6"
+"10/27/20","Household.Member","6"
+"10/28/20","Household.Member","5"
+"10/29/20","Household.Member","5"
+"10/30/20","Household.Member","4"
+"10/31/20","Household.Member","4"
+"11/1/20","Household.Member","4"
+"11/2/20","Household.Member","4"
+"11/3/20","Household.Member","5"
+"11/4/20","Household.Member","6"
+"11/5/20","Household.Member","5"
+"11/6/20","Household.Member","6"
+"11/7/20","Household.Member","5"
+"11/8/20","Household.Member","3"
+"11/9/20","Household.Member","2"
+"11/10/20","Household.Member","2"
+"11/11/20","Household.Member","6"
+"11/12/20","Household.Member","7"
+"11/13/20","Household.Member","10"
+"11/14/20","Household.Member","10"
+"11/15/20","Household.Member","10"
+"11/16/20","Household.Member","7"
+"11/17/20","Household.Member","8"
+"11/18/20","Household.Member","12"
+"11/19/20","Household.Member","10"
+"11/20/20","Household.Member","13"
+"11/21/20","Household.Member","16"
+"11/22/20","Household.Member","17"
+"11/23/20","Household.Member","19"
+"11/24/20","Household.Member","23"
+"11/25/20","Household.Member","26"
+"11/26/20","Household.Member","21"
+"11/27/20","Household.Member","19"
+"11/28/20","Household.Member","22"
+"11/29/20","Household.Member","23"
+"11/30/20","Household.Member","27"
+"6/1/20","Travel","0\"
+"6/2/20","Travel","0\"
+"6/3/20","Travel","0\"
+"6/4/20","Travel","0\"
+"6/5/20","Travel","0\"
+"6/6/20","Travel","0\"
+"6/7/20","Travel","0\"
+"6/8/20","Travel","0\"
+"6/9/20","Travel","0\"
+"6/10/20","Travel","0\"
+"6/11/20","Travel","0\"
+"6/12/20","Travel","0\"
+"6/13/20","Travel","0\"
+"6/14/20","Travel","0\"
+"6/15/20","Travel","0\"
+"6/16/20","Travel","0\"
+"6/17/20","Travel","0\"
+"6/18/20","Travel","0\"
+"6/19/20","Travel","0\"
+"6/20/20","Travel","0\"
+"6/21/20","Travel","0\"
+"6/22/20","Travel","0\"
+"6/23/20","Travel","0\"
+"6/24/20","Travel","0\"
+"6/25/20","Travel","0\"
+"6/26/20","Travel","0\"
+"6/27/20","Travel","0\"
+"6/28/20","Travel","0\"
+"6/29/20","Travel","0\"
+"6/30/20","Travel","0\"
+"7/1/20","Travel","0\"
+"7/2/20","Travel","0\"
+"7/3/20","Travel","0\"
+"7/4/20","Travel","0\"
+"7/5/20","Travel","0\"
+"7/6/20","Travel","0\"
+"7/7/20","Travel","0\"
+"7/8/20","Travel","0\"
+"7/9/20","Travel","0\"
+"7/10/20","Travel","0\"
+"7/11/20","Travel","0\"
+"7/12/20","Travel","0\"
+"7/13/20","Travel","0\"
+"7/14/20","Travel","0\"
+"7/15/20","Travel","0\"
+"7/16/20","Travel","0\"
+"7/17/20","Travel","0\"
+"7/18/20","Travel","0\"
+"7/19/20","Travel","0\"
+"7/20/20","Travel","0\"
+"7/21/20","Travel","0\"
+"7/22/20","Travel","0\"
+"7/23/20","Travel","0\"
+"7/24/20","Travel","0\"
+"7/25/20","Travel","0\"
+"7/26/20","Travel","0\"
+"7/27/20","Travel","0\"
+"7/28/20","Travel","0\"
+"7/29/20","Travel","0\"
+"7/30/20","Travel","0\"
+"7/31/20","Travel","0\"
+"8/1/20","Travel","0\"
+"8/2/20","Travel","0\"
+"8/3/20","Travel","0\"
+"8/4/20","Travel","0\"
+"8/5/20","Travel","0\"
+"8/6/20","Travel","0\"
+"8/7/20","Travel","0\"
+"8/8/20","Travel","0\"
+"8/9/20","Travel","0\"
+"8/10/20","Travel","0\"
+"8/11/20","Travel","0\"
+"8/12/20","Travel","0\"
+"8/13/20","Travel","0\"
+"8/14/20","Travel","0\"
+"8/15/20","Travel","0\"
+"8/16/20","Travel","0\"
+"8/17/20","Travel","0\"
+"8/18/20","Travel","0\"
+"8/19/20","Travel","0\"
+"8/20/20","Travel","0\"
+"8/21/20","Travel","0\"
+"8/22/20","Travel","0\"
+"8/23/20","Travel","0\"
+"8/24/20","Travel","0\"
+"8/25/20","Travel","0\"
+"8/26/20","Travel","0\"
+"8/27/20","Travel","0\"
+"8/28/20","Travel","0\"
+"8/29/20","Travel","0\"
+"8/30/20","Travel","0\"
+"8/31/20","Travel","0\"
+"9/1/20","Travel","0\"
+"9/2/20","Travel","0\"
+"9/3/20","Travel","0\"
+"9/4/20","Travel","0\"
+"9/5/20","Travel","0\"
+"9/6/20","Travel","0\"
+"9/7/20","Travel","0\"
+"9/8/20","Travel","0\"
+"9/9/20","Travel","0\"
+"9/10/20","Travel","0\"
+"9/11/20","Travel","0\"
+"9/12/20","Travel","0\"
+"9/13/20","Travel","0\"
+"9/14/20","Travel","0\"
+"9/15/20","Travel","0\"
+"9/16/20","Travel","0\"
+"9/17/20","Travel","0\"
+"9/18/20","Travel","0\"
+"9/19/20","Travel","0\"
+"9/20/20","Travel","0\"
+"9/21/20","Travel","0\"
+"9/22/20","Travel","0\"
+"9/23/20","Travel","0\"
+"9/24/20","Travel","0\"
+"9/25/20","Travel","0\"
+"9/26/20","Travel","0\"
+"9/27/20","Travel","0\"
+"9/28/20","Travel","0\"
+"9/29/20","Travel","0\"
+"9/30/20","Travel","0\"
+"10/1/20","Travel","0\"
+"10/2/20","Travel","0\"
+"10/3/20","Travel","0\"
+"10/4/20","Travel","0\"
+"10/5/20","Travel","0\"
+"10/6/20","Travel","0\"
+"10/7/20","Travel","0\"
+"10/8/20","Travel","0\"
+"10/9/20","Travel","0\"
+"10/10/20","Travel","0\"
+"10/11/20","Travel","0\"
+"10/12/20","Travel","0\"
+"10/13/20","Travel","0\"
+"10/14/20","Travel","0\"
+"10/15/20","Travel","0\"
+"10/16/20","Travel","0\"
+"10/17/20","Travel","0\"
+"10/18/20","Travel","0\"
+"10/19/20","Travel","0\"
+"10/20/20","Travel","0\"
+"10/21/20","Travel","0\"
+"10/22/20","Travel","0\"
+"10/23/20","Travel","0\"
+"10/24/20","Travel","0\"
+"10/25/20","Travel","0\"
+"10/26/20","Travel","0\"
+"10/27/20","Travel","0\"
+"10/28/20","Travel","0\"
+"10/29/20","Travel","0\"
+"10/30/20","Travel","0\"
+"10/31/20","Travel","0\"
+"11/1/20","Travel","0\"
+"11/2/20","Travel","0\"
+"11/3/20","Travel","0\"
+"11/4/20","Travel","0\"
+"11/5/20","Travel","0\"
+"11/6/20","Travel","0\"
+"11/7/20","Travel","0\"
+"11/8/20","Travel","0\"
+"11/9/20","Travel","0\"
+"11/10/20","Travel","0\"
+"11/11/20","Travel","0\"
+"11/12/20","Travel","0\"
+"11/13/20","Travel","0\"
+"11/14/20","Travel","0\"
+"11/15/20","Travel","0\"
+"11/16/20","Travel","0\"
+"11/17/20","Travel","0\"
+"11/18/20","Travel","0\"
+"11/19/20","Travel","0\"
+"11/20/20","Travel","0\"
+"11/21/20","Travel","0\"
+"11/22/20","Travel","0\"
+"11/23/20","Travel","0\"
+"11/24/20","Travel","0\"
+"11/25/20","Travel","0\"
+"11/26/20","Travel","0\"
+"11/27/20","Travel","0\"
+"11/28/20","Travel","0\"
+"11/29/20","Travel","0\"
+"11/30/20","Travel","0\"
+"6/1/20","Senior.Facility",NA
+"6/2/20","Senior.Facility",NA
+"6/3/20","Senior.Facility",NA
+"6/4/20","Senior.Facility",NA
+"6/5/20","Senior.Facility",NA
+"6/6/20","Senior.Facility",NA
+"6/7/20","Senior.Facility",NA
+"6/8/20","Senior.Facility",NA
+"6/9/20","Senior.Facility",NA
+"6/10/20","Senior.Facility",NA
+"6/11/20","Senior.Facility",NA
+"6/12/20","Senior.Facility",NA
+"6/13/20","Senior.Facility",NA
+"6/14/20","Senior.Facility",NA
+"6/15/20","Senior.Facility",NA
+"6/16/20","Senior.Facility",NA
+"6/17/20","Senior.Facility",NA
+"6/18/20","Senior.Facility",NA
+"6/19/20","Senior.Facility",NA
+"6/20/20","Senior.Facility",NA
+"6/21/20","Senior.Facility",NA
+"6/22/20","Senior.Facility",NA
+"6/23/20","Senior.Facility",NA
+"6/24/20","Senior.Facility",NA
+"6/25/20","Senior.Facility",NA
+"6/26/20","Senior.Facility",NA
+"6/27/20","Senior.Facility",NA
+"6/28/20","Senior.Facility",NA
+"6/29/20","Senior.Facility",NA
+"6/30/20","Senior.Facility",NA
+"7/1/20","Senior.Facility",NA
+"7/2/20","Senior.Facility",NA
+"7/3/20","Senior.Facility",NA
+"7/4/20","Senior.Facility",NA
+"7/5/20","Senior.Facility",NA
+"7/6/20","Senior.Facility",NA
+"7/7/20","Senior.Facility",NA
+"7/8/20","Senior.Facility",NA
+"7/9/20","Senior.Facility",NA
+"7/10/20","Senior.Facility",NA
+"7/11/20","Senior.Facility",NA
+"7/12/20","Senior.Facility",NA
+"7/13/20","Senior.Facility",NA
+"7/14/20","Senior.Facility",NA
+"7/15/20","Senior.Facility",NA
+"7/16/20","Senior.Facility",NA
+"7/17/20","Senior.Facility",NA
+"7/18/20","Senior.Facility",NA
+"7/19/20","Senior.Facility",NA
+"7/20/20","Senior.Facility",NA
+"7/21/20","Senior.Facility",NA
+"7/22/20","Senior.Facility",NA
+"7/23/20","Senior.Facility",NA
+"7/24/20","Senior.Facility",NA
+"7/25/20","Senior.Facility",NA
+"7/26/20","Senior.Facility",NA
+"7/27/20","Senior.Facility",NA
+"7/28/20","Senior.Facility",NA
+"7/29/20","Senior.Facility",NA
+"7/30/20","Senior.Facility",NA
+"7/31/20","Senior.Facility",NA
+"8/1/20","Senior.Facility",NA
+"8/2/20","Senior.Facility",NA
+"8/3/20","Senior.Facility",NA
+"8/4/20","Senior.Facility",NA
+"8/5/20","Senior.Facility",NA
+"8/6/20","Senior.Facility",NA
+"8/7/20","Senior.Facility",NA
+"8/8/20","Senior.Facility",NA
+"8/9/20","Senior.Facility",NA
+"8/10/20","Senior.Facility",NA
+"8/11/20","Senior.Facility",NA
+"8/12/20","Senior.Facility",NA
+"8/13/20","Senior.Facility",NA
+"8/14/20","Senior.Facility",NA
+"8/15/20","Senior.Facility",NA
+"8/16/20","Senior.Facility",NA
+"8/17/20","Senior.Facility",NA
+"8/18/20","Senior.Facility",NA
+"8/19/20","Senior.Facility",NA
+"8/20/20","Senior.Facility",NA
+"8/21/20","Senior.Facility",NA
+"8/22/20","Senior.Facility",NA
+"8/23/20","Senior.Facility",NA
+"8/24/20","Senior.Facility",NA
+"8/25/20","Senior.Facility",NA
+"8/26/20","Senior.Facility",NA
+"8/27/20","Senior.Facility",NA
+"8/28/20","Senior.Facility",NA
+"8/29/20","Senior.Facility",NA
+"8/30/20","Senior.Facility",NA
+"8/31/20","Senior.Facility",NA
+"9/1/20","Senior.Facility",NA
+"9/2/20","Senior.Facility",NA
+"9/3/20","Senior.Facility",NA
+"9/4/20","Senior.Facility",NA
+"9/5/20","Senior.Facility",NA
+"9/6/20","Senior.Facility",NA
+"9/7/20","Senior.Facility",NA
+"9/8/20","Senior.Facility",NA
+"9/9/20","Senior.Facility",NA
+"9/10/20","Senior.Facility",NA
+"9/11/20","Senior.Facility",NA
+"9/12/20","Senior.Facility",NA
+"9/13/20","Senior.Facility",NA
+"9/14/20","Senior.Facility",NA
+"9/15/20","Senior.Facility",NA
+"9/16/20","Senior.Facility",NA
+"9/17/20","Senior.Facility",NA
+"9/18/20","Senior.Facility",NA
+"9/19/20","Senior.Facility",NA
+"9/20/20","Senior.Facility",NA
+"9/21/20","Senior.Facility",NA
+"9/22/20","Senior.Facility",NA
+"9/23/20","Senior.Facility",NA
+"9/24/20","Senior.Facility",NA
+"9/25/20","Senior.Facility",NA
+"9/26/20","Senior.Facility",NA
+"9/27/20","Senior.Facility",NA
+"9/28/20","Senior.Facility",NA
+"9/29/20","Senior.Facility",NA
+"9/30/20","Senior.Facility",NA
+"10/1/20","Senior.Facility",NA
+"10/2/20","Senior.Facility",NA
+"10/3/20","Senior.Facility",NA
+"10/4/20","Senior.Facility",NA
+"10/5/20","Senior.Facility",NA
+"10/6/20","Senior.Facility",NA
+"10/7/20","Senior.Facility",NA
+"10/8/20","Senior.Facility",NA
+"10/9/20","Senior.Facility",NA
+"10/10/20","Senior.Facility",NA
+"10/11/20","Senior.Facility",NA
+"10/12/20","Senior.Facility",NA
+"10/13/20","Senior.Facility",NA
+"10/14/20","Senior.Facility",NA
+"10/15/20","Senior.Facility",NA
+"10/16/20","Senior.Facility",NA
+"10/17/20","Senior.Facility",NA
+"10/18/20","Senior.Facility",NA
+"10/19/20","Senior.Facility",NA
+"10/20/20","Senior.Facility",NA
+"10/21/20","Senior.Facility",NA
+"10/22/20","Senior.Facility",NA
+"10/23/20","Senior.Facility",NA
+"10/24/20","Senior.Facility",NA
+"10/25/20","Senior.Facility",NA
+"10/26/20","Senior.Facility",NA
+"10/27/20","Senior.Facility",NA
+"10/28/20","Senior.Facility",NA
+"10/29/20","Senior.Facility",NA
+"10/30/20","Senior.Facility",NA
+"10/31/20","Senior.Facility",NA
+"11/1/20","Senior.Facility",NA
+"11/2/20","Senior.Facility",NA
+"11/3/20","Senior.Facility",NA
+"11/4/20","Senior.Facility",NA
+"11/5/20","Senior.Facility",NA
+"11/6/20","Senior.Facility",NA
+"11/7/20","Senior.Facility",NA
+"11/8/20","Senior.Facility",NA
+"11/9/20","Senior.Facility",NA
+"11/10/20","Senior.Facility",NA
+"11/11/20","Senior.Facility",NA
+"11/12/20","Senior.Facility",NA
+"11/13/20","Senior.Facility",NA
+"11/14/20","Senior.Facility",NA
+"11/15/20","Senior.Facility",NA
+"11/16/20","Senior.Facility",NA
+"11/17/20","Senior.Facility",NA
+"11/18/20","Senior.Facility",NA
+"11/19/20","Senior.Facility",NA
+"11/20/20","Senior.Facility",NA
+"11/21/20","Senior.Facility",NA
+"11/22/20","Senior.Facility",NA
+"11/23/20","Senior.Facility",NA
+"11/24/20","Senior.Facility",NA
+"11/25/20","Senior.Facility",NA
+"11/26/20","Senior.Facility",NA
+"11/27/20","Senior.Facility",NA
+"11/28/20","Senior.Facility",NA
+"11/29/20","Senior.Facility",NA
+"11/30/20","Senior.Facility",NA
+"6/1/20","Other.Congregate.Setting",NA
+"6/2/20","Other.Congregate.Setting",NA
+"6/3/20","Other.Congregate.Setting",NA
+"6/4/20","Other.Congregate.Setting",NA
+"6/5/20","Other.Congregate.Setting",NA
+"6/6/20","Other.Congregate.Setting",NA
+"6/7/20","Other.Congregate.Setting",NA
+"6/8/20","Other.Congregate.Setting",NA
+"6/9/20","Other.Congregate.Setting",NA
+"6/10/20","Other.Congregate.Setting",NA
+"6/11/20","Other.Congregate.Setting",NA
+"6/12/20","Other.Congregate.Setting",NA
+"6/13/20","Other.Congregate.Setting",NA
+"6/14/20","Other.Congregate.Setting",NA
+"6/15/20","Other.Congregate.Setting",NA
+"6/16/20","Other.Congregate.Setting",NA
+"6/17/20","Other.Congregate.Setting",NA
+"6/18/20","Other.Congregate.Setting",NA
+"6/19/20","Other.Congregate.Setting",NA
+"6/20/20","Other.Congregate.Setting",NA
+"6/21/20","Other.Congregate.Setting",NA
+"6/22/20","Other.Congregate.Setting",NA
+"6/23/20","Other.Congregate.Setting",NA
+"6/24/20","Other.Congregate.Setting",NA
+"6/25/20","Other.Congregate.Setting",NA
+"6/26/20","Other.Congregate.Setting",NA
+"6/27/20","Other.Congregate.Setting",NA
+"6/28/20","Other.Congregate.Setting",NA
+"6/29/20","Other.Congregate.Setting",NA
+"6/30/20","Other.Congregate.Setting",NA
+"7/1/20","Other.Congregate.Setting",NA
+"7/2/20","Other.Congregate.Setting",NA
+"7/3/20","Other.Congregate.Setting",NA
+"7/4/20","Other.Congregate.Setting",NA
+"7/5/20","Other.Congregate.Setting",NA
+"7/6/20","Other.Congregate.Setting",NA
+"7/7/20","Other.Congregate.Setting",NA
+"7/8/20","Other.Congregate.Setting",NA
+"7/9/20","Other.Congregate.Setting",NA
+"7/10/20","Other.Congregate.Setting",NA
+"7/11/20","Other.Congregate.Setting",NA
+"7/12/20","Other.Congregate.Setting",NA
+"7/13/20","Other.Congregate.Setting",NA
+"7/14/20","Other.Congregate.Setting",NA
+"7/15/20","Other.Congregate.Setting",NA
+"7/16/20","Other.Congregate.Setting",NA
+"7/17/20","Other.Congregate.Setting",NA
+"7/18/20","Other.Congregate.Setting",NA
+"7/19/20","Other.Congregate.Setting",NA
+"7/20/20","Other.Congregate.Setting",NA
+"7/21/20","Other.Congregate.Setting",NA
+"7/22/20","Other.Congregate.Setting",NA
+"7/23/20","Other.Congregate.Setting",NA
+"7/24/20","Other.Congregate.Setting",NA
+"7/25/20","Other.Congregate.Setting",NA
+"7/26/20","Other.Congregate.Setting",NA
+"7/27/20","Other.Congregate.Setting",NA
+"7/28/20","Other.Congregate.Setting",NA
+"7/29/20","Other.Congregate.Setting",NA
+"7/30/20","Other.Congregate.Setting",NA
+"7/31/20","Other.Congregate.Setting",NA
+"8/1/20","Other.Congregate.Setting",NA
+"8/2/20","Other.Congregate.Setting",NA
+"8/3/20","Other.Congregate.Setting",NA
+"8/4/20","Other.Congregate.Setting",NA
+"8/5/20","Other.Congregate.Setting",NA
+"8/6/20","Other.Congregate.Setting",NA
+"8/7/20","Other.Congregate.Setting",NA
+"8/8/20","Other.Congregate.Setting",NA
+"8/9/20","Other.Congregate.Setting",NA
+"8/10/20","Other.Congregate.Setting",NA
+"8/11/20","Other.Congregate.Setting",NA
+"8/12/20","Other.Congregate.Setting",NA
+"8/13/20","Other.Congregate.Setting",NA
+"8/14/20","Other.Congregate.Setting",NA
+"8/15/20","Other.Congregate.Setting",NA
+"8/16/20","Other.Congregate.Setting",NA
+"8/17/20","Other.Congregate.Setting",NA
+"8/18/20","Other.Congregate.Setting",NA
+"8/19/20","Other.Congregate.Setting",NA
+"8/20/20","Other.Congregate.Setting",NA
+"8/21/20","Other.Congregate.Setting",NA
+"8/22/20","Other.Congregate.Setting",NA
+"8/23/20","Other.Congregate.Setting",NA
+"8/24/20","Other.Congregate.Setting",NA
+"8/25/20","Other.Congregate.Setting",NA
+"8/26/20","Other.Congregate.Setting",NA
+"8/27/20","Other.Congregate.Setting",NA
+"8/28/20","Other.Congregate.Setting",NA
+"8/29/20","Other.Congregate.Setting",NA
+"8/30/20","Other.Congregate.Setting",NA
+"8/31/20","Other.Congregate.Setting",NA
+"9/1/20","Other.Congregate.Setting",NA
+"9/2/20","Other.Congregate.Setting",NA
+"9/3/20","Other.Congregate.Setting",NA
+"9/4/20","Other.Congregate.Setting",NA
+"9/5/20","Other.Congregate.Setting",NA
+"9/6/20","Other.Congregate.Setting",NA
+"9/7/20","Other.Congregate.Setting",NA
+"9/8/20","Other.Congregate.Setting",NA
+"9/9/20","Other.Congregate.Setting",NA
+"9/10/20","Other.Congregate.Setting",NA
+"9/11/20","Other.Congregate.Setting",NA
+"9/12/20","Other.Congregate.Setting",NA
+"9/13/20","Other.Congregate.Setting",NA
+"9/14/20","Other.Congregate.Setting",NA
+"9/15/20","Other.Congregate.Setting",NA
+"9/16/20","Other.Congregate.Setting",NA
+"9/17/20","Other.Congregate.Setting",NA
+"9/18/20","Other.Congregate.Setting",NA
+"9/19/20","Other.Congregate.Setting",NA
+"9/20/20","Other.Congregate.Setting",NA
+"9/21/20","Other.Congregate.Setting",NA
+"9/22/20","Other.Congregate.Setting",NA
+"9/23/20","Other.Congregate.Setting",NA
+"9/24/20","Other.Congregate.Setting",NA
+"9/25/20","Other.Congregate.Setting",NA
+"9/26/20","Other.Congregate.Setting",NA
+"9/27/20","Other.Congregate.Setting",NA
+"9/28/20","Other.Congregate.Setting",NA
+"9/29/20","Other.Congregate.Setting",NA
+"9/30/20","Other.Congregate.Setting",NA
+"10/1/20","Other.Congregate.Setting",NA
+"10/2/20","Other.Congregate.Setting",NA
+"10/3/20","Other.Congregate.Setting",NA
+"10/4/20","Other.Congregate.Setting",NA
+"10/5/20","Other.Congregate.Setting",NA
+"10/6/20","Other.Congregate.Setting",NA
+"10/7/20","Other.Congregate.Setting",NA
+"10/8/20","Other.Congregate.Setting",NA
+"10/9/20","Other.Congregate.Setting",NA
+"10/10/20","Other.Congregate.Setting",NA
+"10/11/20","Other.Congregate.Setting",NA
+"10/12/20","Other.Congregate.Setting",NA
+"10/13/20","Other.Congregate.Setting",NA
+"10/14/20","Other.Congregate.Setting",NA
+"10/15/20","Other.Congregate.Setting",NA
+"10/16/20","Other.Congregate.Setting",NA
+"10/17/20","Other.Congregate.Setting",NA
+"10/18/20","Other.Congregate.Setting",NA
+"10/19/20","Other.Congregate.Setting",NA
+"10/20/20","Other.Congregate.Setting",NA
+"10/21/20","Other.Congregate.Setting",NA
+"10/22/20","Other.Congregate.Setting",NA
+"10/23/20","Other.Congregate.Setting",NA
+"10/24/20","Other.Congregate.Setting",NA
+"10/25/20","Other.Congregate.Setting",NA
+"10/26/20","Other.Congregate.Setting",NA
+"10/27/20","Other.Congregate.Setting",NA
+"10/28/20","Other.Congregate.Setting",NA
+"10/29/20","Other.Congregate.Setting",NA
+"10/30/20","Other.Congregate.Setting",NA
+"10/31/20","Other.Congregate.Setting",NA
+"11/1/20","Other.Congregate.Setting",NA
+"11/2/20","Other.Congregate.Setting",NA
+"11/3/20","Other.Congregate.Setting",NA
+"11/4/20","Other.Congregate.Setting",NA
+"11/5/20","Other.Congregate.Setting",NA
+"11/6/20","Other.Congregate.Setting",NA
+"11/7/20","Other.Congregate.Setting",NA
+"11/8/20","Other.Congregate.Setting",NA
+"11/9/20","Other.Congregate.Setting",NA
+"11/10/20","Other.Congregate.Setting",NA
+"11/11/20","Other.Congregate.Setting",NA
+"11/12/20","Other.Congregate.Setting",NA
+"11/13/20","Other.Congregate.Setting",NA
+"11/14/20","Other.Congregate.Setting",NA
+"11/15/20","Other.Congregate.Setting",NA
+"11/16/20","Other.Congregate.Setting",NA
+"11/17/20","Other.Congregate.Setting",NA
+"11/18/20","Other.Congregate.Setting",NA
+"11/19/20","Other.Congregate.Setting",NA
+"11/20/20","Other.Congregate.Setting",NA
+"11/21/20","Other.Congregate.Setting",NA
+"11/22/20","Other.Congregate.Setting",NA
+"11/23/20","Other.Congregate.Setting",NA
+"11/24/20","Other.Congregate.Setting",NA
+"11/25/20","Other.Congregate.Setting",NA
+"11/26/20","Other.Congregate.Setting",NA
+"11/27/20","Other.Congregate.Setting",NA
+"11/28/20","Other.Congregate.Setting",NA
+"11/29/20","Other.Congregate.Setting",NA
+"11/30/20","Other.Congregate.Setting",NA
+"6/1/20","Unknown",NA
+"6/2/20","Unknown",NA
+"6/3/20","Unknown",NA
+"6/4/20","Unknown",NA
+"6/5/20","Unknown",NA
+"6/6/20","Unknown",NA
+"6/7/20","Unknown",NA
+"6/8/20","Unknown",NA
+"6/9/20","Unknown",NA
+"6/10/20","Unknown",NA
+"6/11/20","Unknown",NA
+"6/12/20","Unknown",NA
+"6/13/20","Unknown",NA
+"6/14/20","Unknown",NA
+"6/15/20","Unknown",NA
+"6/16/20","Unknown",NA
+"6/17/20","Unknown",NA
+"6/18/20","Unknown",NA
+"6/19/20","Unknown",NA
+"6/20/20","Unknown",NA
+"6/21/20","Unknown",NA
+"6/22/20","Unknown",NA
+"6/23/20","Unknown",NA
+"6/24/20","Unknown",NA
+"6/25/20","Unknown",NA
+"6/26/20","Unknown",NA
+"6/27/20","Unknown",NA
+"6/28/20","Unknown",NA
+"6/29/20","Unknown",NA
+"6/30/20","Unknown",NA
+"7/1/20","Unknown",NA
+"7/2/20","Unknown",NA
+"7/3/20","Unknown",NA
+"7/4/20","Unknown",NA
+"7/5/20","Unknown",NA
+"7/6/20","Unknown",NA
+"7/7/20","Unknown",NA
+"7/8/20","Unknown",NA
+"7/9/20","Unknown",NA
+"7/10/20","Unknown",NA
+"7/11/20","Unknown",NA
+"7/12/20","Unknown",NA
+"7/13/20","Unknown",NA
+"7/14/20","Unknown",NA
+"7/15/20","Unknown",NA
+"7/16/20","Unknown",NA
+"7/17/20","Unknown",NA
+"7/18/20","Unknown",NA
+"7/19/20","Unknown",NA
+"7/20/20","Unknown",NA
+"7/21/20","Unknown",NA
+"7/22/20","Unknown",NA
+"7/23/20","Unknown",NA
+"7/24/20","Unknown",NA
+"7/25/20","Unknown",NA
+"7/26/20","Unknown",NA
+"7/27/20","Unknown",NA
+"7/28/20","Unknown",NA
+"7/29/20","Unknown",NA
+"7/30/20","Unknown",NA
+"7/31/20","Unknown",NA
+"8/1/20","Unknown",NA
+"8/2/20","Unknown",NA
+"8/3/20","Unknown",NA
+"8/4/20","Unknown",NA
+"8/5/20","Unknown",NA
+"8/6/20","Unknown",NA
+"8/7/20","Unknown",NA
+"8/8/20","Unknown",NA
+"8/9/20","Unknown",NA
+"8/10/20","Unknown",NA
+"8/11/20","Unknown",NA
+"8/12/20","Unknown",NA
+"8/13/20","Unknown",NA
+"8/14/20","Unknown",NA
+"8/15/20","Unknown",NA
+"8/16/20","Unknown",NA
+"8/17/20","Unknown",NA
+"8/18/20","Unknown",NA
+"8/19/20","Unknown",NA
+"8/20/20","Unknown",NA
+"8/21/20","Unknown",NA
+"8/22/20","Unknown",NA
+"8/23/20","Unknown",NA
+"8/24/20","Unknown",NA
+"8/25/20","Unknown",NA
+"8/26/20","Unknown",NA
+"8/27/20","Unknown",NA
+"8/28/20","Unknown",NA
+"8/29/20","Unknown",NA
+"8/30/20","Unknown",NA
+"8/31/20","Unknown",NA
+"9/1/20","Unknown",NA
+"9/2/20","Unknown",NA
+"9/3/20","Unknown",NA
+"9/4/20","Unknown",NA
+"9/5/20","Unknown",NA
+"9/6/20","Unknown",NA
+"9/7/20","Unknown",NA
+"9/8/20","Unknown",NA
+"9/9/20","Unknown",NA
+"9/10/20","Unknown",NA
+"9/11/20","Unknown",NA
+"9/12/20","Unknown",NA
+"9/13/20","Unknown",NA
+"9/14/20","Unknown",NA
+"9/15/20","Unknown",NA
+"9/16/20","Unknown",NA
+"9/17/20","Unknown",NA
+"9/18/20","Unknown",NA
+"9/19/20","Unknown",NA
+"9/20/20","Unknown",NA
+"9/21/20","Unknown",NA
+"9/22/20","Unknown",NA
+"9/23/20","Unknown",NA
+"9/24/20","Unknown",NA
+"9/25/20","Unknown",NA
+"9/26/20","Unknown",NA
+"9/27/20","Unknown",NA
+"9/28/20","Unknown",NA
+"9/29/20","Unknown",NA
+"9/30/20","Unknown",NA
+"10/1/20","Unknown",NA
+"10/2/20","Unknown",NA
+"10/3/20","Unknown",NA
+"10/4/20","Unknown",NA
+"10/5/20","Unknown",NA
+"10/6/20","Unknown",NA
+"10/7/20","Unknown",NA
+"10/8/20","Unknown",NA
+"10/9/20","Unknown",NA
+"10/10/20","Unknown",NA
+"10/11/20","Unknown",NA
+"10/12/20","Unknown",NA
+"10/13/20","Unknown",NA
+"10/14/20","Unknown",NA
+"10/15/20","Unknown",NA
+"10/16/20","Unknown",NA
+"10/17/20","Unknown",NA
+"10/18/20","Unknown",NA
+"10/19/20","Unknown",NA
+"10/20/20","Unknown",NA
+"10/21/20","Unknown",NA
+"10/22/20","Unknown",NA
+"10/23/20","Unknown",NA
+"10/24/20","Unknown",NA
+"10/25/20","Unknown",NA
+"10/26/20","Unknown",NA
+"10/27/20","Unknown",NA
+"10/28/20","Unknown",NA
+"10/29/20","Unknown",NA
+"10/30/20","Unknown",NA
+"10/31/20","Unknown",NA
+"11/1/20","Unknown",NA
+"11/2/20","Unknown",NA
+"11/3/20","Unknown",NA
+"11/4/20","Unknown",NA
+"11/5/20","Unknown",NA
+"11/6/20","Unknown",NA
+"11/7/20","Unknown",NA
+"11/8/20","Unknown",NA
+"11/9/20","Unknown",NA
+"11/10/20","Unknown",NA
+"11/11/20","Unknown",NA
+"11/12/20","Unknown",NA
+"11/13/20","Unknown",NA
+"11/14/20","Unknown",NA
+"11/15/20","Unknown",NA
+"11/16/20","Unknown",NA
+"11/17/20","Unknown",NA
+"11/18/20","Unknown",NA
+"11/19/20","Unknown",NA
+"11/20/20","Unknown",NA
+"11/21/20","Unknown",NA
+"11/22/20","Unknown",NA
+"11/23/20","Unknown",NA
+"11/24/20","Unknown",NA
+"11/25/20","Unknown",NA
+"11/26/20","Unknown",NA
+"11/27/20","Unknown",NA
+"11/28/20","Unknown",NA
+"11/29/20","Unknown",NA
+"11/30/20","Unknown",NA

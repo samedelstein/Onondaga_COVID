@@ -5,7 +5,7 @@ library(tidyverse)
 library(data.table)
 
 #County Hospitalizations
-data_list <- read_html('https://datawrapper.dwcdn.net/I4IZD/122/') %>%  #Need to check to see how often url changes
+data_list <- read_html('https://datawrapper.dwcdn.net/I4IZD/123/') %>%  #Need to check to see how often url changes
   html_node(xpath=".//script[contains(., 'visJSON')]") %>% # find the javascript section with the data
   html_text() %>% # get that section
   stri_split_lines() %>% # split into lines so we can target the actual data element
@@ -50,7 +50,12 @@ ggsave("/Users/samedelstein/Onondaga_COVID/visualizations/Hospitalizations_per_w
 
 
 write.csv(df, "data/Onondaga_County_Hospitalizations.csv", row.names = FALSE)
+hospitalizations <- read.csv("data/Onondaga_County_Hospitalizations.csv", stringsAsFactors = FALSE)
 
+Avg_monthly_hospitalizations <- hospitalizations %>%
+  mutate(month = month(Date)) %>%
+  group_by(month) %>%
+  summarise(mean(Total.Hospitalized))
 
 
 Total_COVID_Hospitalizations_CountyData <- ggplot(df, aes(Date, `Total Hospitalized`)) +
