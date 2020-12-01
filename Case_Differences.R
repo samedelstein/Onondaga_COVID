@@ -1,3 +1,5 @@
+library(tidyverse)
+library(jsonlite)
 county_data <- read.csv("https://raw.githubusercontent.com/samedelstein/Onondaga_COVID/master/data/county_case_mapping.csv") %>%
   mutate(new_cases = CONFIRMED - lag(CONFIRMED,1),
          Last.7.Days.Mean_County = zoo::rollmean(new_cases, k = 7, fill = NA, align = "right"),
@@ -45,7 +47,7 @@ CDC_NYS_County_vis <- data_df %>%
   ggthemes::theme_economist() +
   theme(axis.text.x = element_text(angle = 90))+
   theme(legend.title = element_blank())
-ggsave("/visualizations/CDC_NYS_County_vis.jpg", plot = CDC_NYS_County_vis, width = 10, height = 7)
+ggsave("visualizations/CDC_NYS_County_vis.jpg", plot = CDC_NYS_County_vis, width = 10, height = 7)
 
 
 
@@ -89,7 +91,7 @@ CDC_NYS_Difference_viz <- data_df %>%
   ggthemes::theme_economist() +
   theme(axis.text.x = element_text(angle = 90))+
   theme(legend.title = element_blank())
-ggsave("/visualizations/CDC_NYS_Difference_viz.jpg", plot = CDC_NYS_Difference_viz, width = 10, height = 7)
+ggsave("visualizations/CDC_NYS_Difference_viz.jpg", plot = CDC_NYS_Difference_viz, width = 10, height = 7)
 
 #CDC & County differences
 
@@ -117,7 +119,7 @@ CDC_County_Difference_viz <- data_df %>%
   ggthemes::theme_economist() +
   theme(axis.text.x = element_text(angle = 90))+
   theme(legend.title = element_blank())
-ggsave("/visualizations/CDC_County_Difference_viz.jpg", plot = CDC_County_Difference_viz, width = 10, height = 7)
+ggsave("visualizations/CDC_County_Difference_viz.jpg", plot = CDC_County_Difference_viz, width = 10, height = 7)
 
 
 #NYS & County differences
@@ -146,5 +148,5 @@ NYS_County_Difference_viz <- data_df %>%
   ggthemes::theme_economist() +
   theme(axis.text.x = element_text(angle = 90))+
   theme(legend.title = element_blank())
-ggsave("/visualizations/NYS_County_Difference_viz.jpg", plot = NYS_County_Difference_viz, width = 10, height = 7)
+ggsave("visualizations/NYS_County_Difference_viz.jpg", plot = NYS_County_Difference_viz, width = 10, height = 7)
 
