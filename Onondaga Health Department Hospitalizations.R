@@ -5,7 +5,7 @@ library(tidyverse)
 library(data.table)
 
 #County Hospitalizations
-data_list <- read_html('https://datawrapper.dwcdn.net/I4IZD/123/') %>%  #Need to check to see how often url changes
+data_list <- read_html('https://datawrapper.dwcdn.net/I4IZD/126/') %>%  #Need to check to see how often url changes
   html_node(xpath=".//script[contains(., 'visJSON')]") %>% # find the javascript section with the data
   html_text() %>% # get that section
   stri_split_lines() %>% # split into lines so we can target the actual data element
@@ -24,6 +24,12 @@ names(df) <- c("Date", "Total Hospitalized","New admissions","Total Critical Con
 df$Baseline <- gsub("\\", "", df$Baseline,  fixed = TRUE)
 
 df$Date <- as.Date(df$Date, "%m/%d/%y")
+
+df %>%
+  mutate(mean.7.days = zoo::rollmean(`New admissions`, k = 7, fill = NA, align = 'right')) %>%
+  ggplot( ) +
+  geom_point(aes(Date, `New admissions`), alpha = .5) +
+  geom_line(aes(Date, mean.7.days))
 
 Hospitalizations_per_week_viz <- df %>%
   mutate(Last.7.Days.Mean_County = zoo::rollmean(`Total Hospitalized`, k = 7, fill = NA, align = "right"),
@@ -166,7 +172,7 @@ hospitalizations_by_week_viz <-   ggplot(hospitalizations_by_week) +
 
 merge(df, county_case_mapping_df_new, by.x = 'Date', by.y = 'DATE') %>%
   ggplot() +
-  geom_col(aes(Date, `Total Hospitalized`), alpha = .5, color = 'red', fill = 'red') +
+  geom_col(aes(Date, `New admissions`), alpha = .5, color = 'red', fill = 'red') +
   geom_col(aes(Date, new_cases), alpha = .5, color = 'blue', fill = 'blue')
 
 

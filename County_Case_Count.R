@@ -2,14 +2,14 @@ library(lubridate)
 library(jsonlite)
 library(RCurl)
 library(ggrepel)
-
+library(tidyverse)
 
 county_case_mapping_old <- read.csv("data/county_case_mapping.csv",stringsAsFactors = FALSE)
 
 
 (max(county_case_mapping_old$CONFIRMED)/460528) * 100000
 
-county_case_mapping <- fromJSON(paste0("https://services3.arcgis.com/6QuzuucBh0MLJk7u/arcgis/rest/services/Case_mapping_by_municipality_",format(Sys.Date(), "%B_%d"),"/FeatureServer/1/query?f=json&where=1%3D1&returnGeometry=false&spatialRel=esriSpatialRelIntersects&outFields=*&outSR=102100&resultOffset=0&resultRecordCount=4000&resultType=standard&cacheHint=true")) 
+county_case_mapping <- fromJSON(paste0("https://services3.arcgis.com/6QuzuucBh0MLJk7u/arcgis/rest/services/Case_mapping_by_municipality_",gsub('(\\D)0', '\\1', format(Sys.Date(), "%B_%d")),"/FeatureServer/1/query?f=json&where=1%3D1&returnGeometry=false&spatialRel=esriSpatialRelIntersects&outFields=*&outSR=102100&resultOffset=0&resultRecordCount=4000&resultType=standard&cacheHint=true")) 
 county_case_mapping_df <- county_case_mapping$features$attributes
 
 duprows <- rownames(county_case_mapping_old) %in% rownames(county_case_mapping_df)
@@ -20,13 +20,16 @@ county_case_mapping_df_new <- county_case_mapping_df_new %>%
          DATE = as.Date(paste0(county_case_mapping_df_new$DATE, '-', year(Sys.Date())), '%B%d-%Y'))
 write.csv(county_case_mapping_df_new, "data/county_case_mapping.csv", row.names = FALSE)
 
-county_case_mapping_old %>%
+county_case_mapping_df_new %>%
   mutate(month = month(DATE),
          new_deaths = DEATHS - lag(DEATHS,1)) %>%
   group_by(month) %>%
   summarise(sum_deaths = sum(new_deaths, na.rm = TRUE),
             sum_cases = sum(new_cases, na.rm = TRUE))
-
+county_case_mapping_df_new %>%
+  select(DATE, new_deaths) %>%
+  arrange(new_deaths)
+  
 
 colors_Positives <- c(
   'Rolling.7.Day.Positives' = '#fdae61',

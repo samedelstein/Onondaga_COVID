@@ -79,9 +79,7 @@ p2 <- ggplot(county_case_data) +
         plot.title = element_text(hjust = 0.5, face="bold"),
         panel.grid.major.x = element_blank())
 
-figure <- ggarrange(bxp, dp, lp,
-                    labels = c("A", "B", "C"),
-                    ncol = 2, nrow = 2)
+
 
 
 
