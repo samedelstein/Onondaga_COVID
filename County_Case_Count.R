@@ -4,12 +4,13 @@ library(RCurl)
 library(ggrepel)
 library(tidyverse)
 
+
 county_case_mapping_old <- read.csv("data/county_case_mapping.csv",stringsAsFactors = FALSE)
 
 
 (max(county_case_mapping_old$CONFIRMED)/460528) * 100000
 
-county_case_mapping <- fromJSON(paste0("https://services3.arcgis.com/6QuzuucBh0MLJk7u/arcgis/rest/services/Case_mapping_by_municipality_",gsub('(\\D)0', '\\1', format(Sys.Date(), "%B_%d")),"/FeatureServer/1/query?f=json&where=1%3D1&returnGeometry=false&spatialRel=esriSpatialRelIntersects&outFields=*&outSR=102100&resultOffset=0&resultRecordCount=4000&resultType=standard&cacheHint=true")) 
+county_case_mapping <- fromJSON(paste0("https://services3.arcgis.com/6QuzuucBh0MLJk7u/arcgis/rest/services/Case_mapping_by_municipality_",gsub('(\\D)0', '\\1', format(Sys.Date(), "%b_%d")),"/FeatureServer/1/query?f=json&where=1%3D1&returnGeometry=false&spatialRel=esriSpatialRelIntersects&outFields=*&outSR=102100&resultOffset=0&resultRecordCount=4000&resultType=standard&cacheHint=true")) 
 county_case_mapping_df <- county_case_mapping$features$attributes
 
 duprows <- rownames(county_case_mapping_old) %in% rownames(county_case_mapping_df)
@@ -56,7 +57,23 @@ county_case_mapping_viz <- county_case_mapping_df_new %>%
   theme(legend.title = element_blank())
 ggsave("/Users/samedelstein/Onondaga_COVID/visualizations/county_case_mapping_viz.jpg", plot = county_case_mapping_viz, width = 10, height = 7)
 
-
+county_case_mapping_df_new %>%
+  mutate(more_than_city = case_when(new_cases > 123 ~ 1,
+                   TRUE ~ 0)) %>%
+  ggplot() +
+  geom_col(aes(DATE, new_cases, group = 1, fill=factor(more_than_city))) +
+  labs(title = "Positive Tests in Onondaga County with Rolling Average",
+       subtitle = paste("Data as of", max(county_case_mapping_df_new$DATE), sep = " "),
+       caption = "Source: covid19.ongov.net/data",
+       x = "",
+       y = "Confirmed Cases",
+       color = '') +
+  scale_x_date(date_breaks = "1 week", date_labels = "%m/%d") +
+  scale_fill_manual(values = c('black', 'red'), labels= c('Less than City Cases on 12/3', "More than City Cases on 12/3")) +
+  ggthemes::theme_economist() +
+  theme(axis.text.x = element_text(angle = 90)) +
+  theme(legend.title = element_blank())
+  
 
 timeto1000_County <- county_case_mapping_df_new %>%
   mutate(by1000 = floor(CONFIRMED/1000)*1000) %>%

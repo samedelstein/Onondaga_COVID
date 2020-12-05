@@ -3,7 +3,7 @@ library(lubridate)
 library(tidyverse)
 
 city_case_mapping_old <- read.csv("data/city_case_mapping.csv")
-City_case_mapping <- fromJSON(paste0("https://services3.arcgis.com/6QuzuucBh0MLJk7u/arcgis/rest/services/City_case_mapping_",gsub('(\\D)0', '\\1', format(Sys.Date(), "%B_%d")),"/FeatureServer/1/query?f=json&where=OBJECTID%3E187&returnGeometry=false&spatialRel=esriSpatialRelIntersects&outFields=*&resultOffset=0&resultRecordCount=4000&resultType=standard&cacheHint=true"))
+City_case_mapping <- fromJSON(paste0("https://services3.arcgis.com/6QuzuucBh0MLJk7u/arcgis/rest/services/City_case_mapping_",gsub('(\\D)0', '\\1', format(Sys.Date(), "%b_%d")),"/FeatureServer/1/query?f=json&where=OBJECTID%3E187&returnGeometry=false&spatialRel=esriSpatialRelIntersects&outFields=*&resultOffset=0&resultRecordCount=4000&resultType=standard&cacheHint=true"))
 City_case_mapping_df <- City_case_mapping$features$attributes
 
 duprows <- rownames(city_case_mapping_old) %in% rownames(City_case_mapping_df)
@@ -40,4 +40,10 @@ city_cases_rolling <- city_case_mapping_df_new %>%
   theme(axis.text.x = element_text(angle = 90)) +
   theme(legend.title = element_blank())
 ggsave("/Users/samedelstein/Onondaga_COVID/visualizations/city_cases_rolling.jpg", plot = city_cases_rolling, width = 10, height = 7)
+
+city_new_cases <- city_case_mapping_df_new %>%
+  mutate(Last.7.Days.Mean = (CONFIRMED - lag(CONFIRMED,7))/7)
+
+
+
 
