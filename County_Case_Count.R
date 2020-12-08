@@ -10,7 +10,7 @@ county_case_mapping_old <- read.csv("data/county_case_mapping.csv",stringsAsFact
 
 (max(county_case_mapping_old$CONFIRMED)/460528) * 100000
 
-county_case_mapping <- fromJSON(paste0("https://services3.arcgis.com/6QuzuucBh0MLJk7u/arcgis/rest/services/Case_mapping_by_municipality_",gsub('(\\D)0', '\\1', format(Sys.Date(), "%b_%d")),"/FeatureServer/1/query?f=json&where=1%3D1&returnGeometry=false&spatialRel=esriSpatialRelIntersects&outFields=*&outSR=102100&resultOffset=0&resultRecordCount=4000&resultType=standard&cacheHint=true")) 
+county_case_mapping <- fromJSON(paste0("https://services3.arcgis.com/6QuzuucBh0MLJk7u/arcgis/rest/services/Case_mapping_by_municipality_",gsub('(\\D)0', '\\1', format(Sys.Date(), "%B_%d")),"/FeatureServer/1/query?f=json&where=1%3D1&returnGeometry=false&spatialRel=esriSpatialRelIntersects&outFields=*&outSR=102100&resultOffset=0&resultRecordCount=4000&resultType=standard&cacheHint=true")) 
 county_case_mapping_df <- county_case_mapping$features$attributes
 
 duprows <- rownames(county_case_mapping_old) %in% rownames(county_case_mapping_df)
@@ -80,7 +80,7 @@ timeto1000_County <- county_case_mapping_df_new %>%
   group_by(by1000) %>%
   slice(which.min(DATE)) %>%
   select(DATE, by1000)
-
+county_case_mapping_df_new %>% filter(CONFIRMED > 6243.5)
 timeto1000_County$days <- difftime( timeto1000_County$DATE,lag(timeto1000_County$DATE,1))
 timeto1000_County <- timeto1000_County %>% filter(by1000 != 0)
 DaysToReach1000Cases_County <- ggplot(timeto1000_County, aes(factor(by1000), days)) +

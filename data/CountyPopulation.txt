@@ -1,0 +1,63 @@
+County|Population
+Kings|2559903
+Queens|2253858
+New York|1628706
+Suffolk|1476601
+Bronx|1418207
+Nassau|1356924
+Westchester|967506
+Erie|918702
+Monroe|741770
+Richmond|476143
+Onondaga|460528
+Orange|384940
+Rockland|325789
+Albany|305506
+Dutchess|294218
+Saratoga|229863
+Oneida|228671
+Niagara|209281
+Broome|190488
+Ulster|177573
+Rensselaer|158714
+Schenectady|155299
+Chautauqua|126903
+Oswego|117124
+Jefferson|109834
+Ontario|109777
+St Lawrence|107740
+Tompkins|102180
+Putnam|98320
+Steuben|95379
+Wayne|89918
+Chemung|83456
+Clinton|80485
+Cayuga|76576
+Cattaraugus|76117
+Sullivan|75432
+Madison|70941
+Warren|63944
+Livingston|62914
+Herkimer|61319
+Washington|61204
+Otsego|59493
+Columbia|59461
+Genesee|57280
+Fulton|53383
+Franklin|50022
+Montgomery|49221
+Tioga| 48203
+Cortland|47581
+Chenango|47207
+Greene|47188
+Allegany|46091
+Delaware|44135
+Orleans| 40352
+Wyoming| 39859
+Essex| 36885
+Seneca|34016
+Schoharie| 30999
+Lewis| 26296
+Yates| 24913
+Schuyler|17807
+Hamilton|4416
