@@ -3,8 +3,7 @@ library(lubridate)
 library(tidyverse)
 
 city_case_mapping_old <- read.csv("data/city_case_mapping.csv")
-City_case_mapping_Dec_9
-City_case_mapping <- fromJSON(paste0("https://services3.arcgis.com/6QuzuucBh0MLJk7u/arcgis/rest/services/City_case_mapping_",gsub('(\\D)0', '\\1', format(Sys.Date(), "%b_%d")),"/FeatureServer/1/query?f=json&where=OBJECTID%3E1&returnGeometry=false&spatialRel=esriSpatialRelIntersects&outFields=*&resultOffset=0&resultRecordCount=4000&resultType=standard&cacheHint=true"))
+City_case_mapping <- fromJSON(paste0("https://services3.arcgis.com/6QuzuucBh0MLJk7u/arcgis/rest/services/City_case_mapping_",gsub('(\\D)0', '\\1', format(Sys.Date(), "%B_%d")),"/FeatureServer/1/query?f=json&where=OBJECTID%3E1&returnGeometry=false&spatialRel=esriSpatialRelIntersects&outFields=*&resultOffset=0&resultRecordCount=4000&resultType=standard&cacheHint=true"))
 City_case_mapping_df <- City_case_mapping$features$attributes
 
 duprows <- rownames(city_case_mapping_old) %in% rownames(City_case_mapping_df)
@@ -50,8 +49,7 @@ city_new_cases <- city_case_mapping_df_new %>%
 timeto1000_City<- city_case_mapping_df_new %>%
   mutate(by1000 = floor(CONFIRMED/1000)*1000) %>%
   group_by(by1000) %>%
-  slice(which.min(DATE)) %>%
-  select(DATE, by1000)
+  slice(which.min(DATE)) 
 
 timeto1000_City$days <- difftime( timeto1000_City$DATE,lag(timeto1000_City$DATE,1))
 timeto1000_City <- timeto1000_City %>% filter(by1000 != 0)
@@ -71,6 +69,6 @@ DaysToReach1000Cases_City <- ggplot(timeto1000_City, aes(factor(by1000), days)) 
   ggthemes::theme_economist() +
   theme(legend.position = "none",
         axis.text.x = element_text(angle = 90)) 
-ggsave("/Users/samedelstein/Onondaga_COVID/visualizations/DaysToReach1000Cases_County.jpg", plot = DaysToReach1000Cases_County, width = 10, height = 7)
+ggsave("/Users/samedelstein/Onondaga_COVID/visualizations/DaysToReach1000Cases_City.jpg", plot = DaysToReach1000Cases_City, width = 10, height = 7)
 
 
