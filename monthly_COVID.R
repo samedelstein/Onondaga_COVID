@@ -13,7 +13,7 @@ monthly_state_county_COVID <- state_county_COVID %>%
 p1 <-   ggplot(monthly_state_county_COVID,aes(month, sum_tests)) +
   geom_col(fill = 'darkblue') +
   ylim(0,max(monthly_state_county_COVID$sum_tests) + 25000) +
-  geom_text(data=subset(monthly_state_county_COVID, month == 'Nov'),aes(x = month, y=sum_tests, label=sum_tests),                   
+  geom_text(data=subset(monthly_state_county_COVID, month == 'Dec'),aes(x = month, y=sum_tests, label=sum_tests),                   
             position= position_dodge(width=0.9), hjust=-.25, angle = 90, color="darkblue") +
   labs(title = 'Monthly Tests',
        x = '',
@@ -33,7 +33,7 @@ hospitalizations_monthly <- hospitalizations %>%
 p3 <- ggplot(hospitalizations_monthly, aes(month, avg_hospitalized)) +
   geom_col(fill = '#56B4E9')  + 
   ylim(0,max(hospitalizations_monthly$avg_hospitalized) + 25) +
-  geom_text(data=subset(hospitalizations_monthly, month == 'Nov'),aes(x = month, y=avg_hospitalized, label=round(avg_hospitalized)),                   
+  geom_text(data=subset(hospitalizations_monthly, month == 'Dec'),aes(x = month, y=avg_hospitalized, label=round(avg_hospitalized)),                   
                          position= position_dodge(width=0.9), hjust=-.25, angle = 90, color="#56B4E9") +
   labs(title = 'Avg Monthly Hospitalized',
        x = '',
@@ -55,7 +55,7 @@ county_case_data <- county_COVID %>%
 p4 <- ggplot(county_case_data) +
   geom_col(aes(month, sum_deaths), fill = 'black') +
   #ylim(0,max(county_case_data$sum_deaths) + 50) +
-  geom_text(data=subset(county_case_data, month == 'Nov'),aes(x = month, y=sum_deaths, label=sum_deaths),                   
+  geom_text(data=subset(county_case_data, month == 'Dec'),aes(x = month, y=sum_deaths, label=sum_deaths),                   
             position= position_dodge(width=0.9), hjust=-.25, angle = 90, color="black") +
   labs(title = 'Monthly Deaths',
        x = '',
@@ -68,7 +68,7 @@ p4 <- ggplot(county_case_data) +
 p2 <- ggplot(county_case_data) +
   geom_col(aes(month, sum_cases), fill = 'red') +
   ylim(0,max(county_case_data$sum_cases) + 500) +
-  geom_text(data=subset(county_case_data, month == 'Nov'),aes(x = month, y=sum_cases, label=sum_cases),                   
+  geom_text(data=subset(county_case_data, month == 'Dec'),aes(x = month, y=sum_cases, label=sum_cases),                   
             position= position_dodge(width=0.9), hjust=-.25, angle = 90, color="red") +
   labs(title = 'Monthly Cases',
        x = '',
