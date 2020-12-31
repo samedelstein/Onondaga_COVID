@@ -32,7 +32,7 @@ hospitalizations_monthly <- hospitalizations %>%
 
 p3 <- ggplot(hospitalizations_monthly, aes(month, avg_hospitalized)) +
   geom_col(fill = '#56B4E9')  + 
-  ylim(0,max(hospitalizations_monthly$avg_hospitalized) + 25) +
+  ylim(0,max(hospitalizations_monthly$avg_hospitalized) + 50) +
   geom_text(data=subset(hospitalizations_monthly, month == 'Dec'),aes(x = month, y=avg_hospitalized, label=round(avg_hospitalized)),                   
                          position= position_dodge(width=0.9), hjust=-.25, angle = 90, color="#56B4E9") +
   labs(title = 'Avg Monthly Hospitalized',
@@ -54,7 +54,7 @@ county_case_data <- county_COVID %>%
 
 p4 <- ggplot(county_case_data) +
   geom_col(aes(month, sum_deaths), fill = 'black') +
-  #ylim(0,max(county_case_data$sum_deaths) + 50) +
+  ylim(0,max(county_case_data$sum_deaths) + 50) +
   geom_text(data=subset(county_case_data, month == 'Dec'),aes(x = month, y=sum_deaths, label=sum_deaths),                   
             position= position_dodge(width=0.9), hjust=-.25, angle = 90, color="black") +
   labs(title = 'Monthly Deaths',
@@ -67,7 +67,7 @@ p4 <- ggplot(county_case_data) +
 
 p2 <- ggplot(county_case_data) +
   geom_col(aes(month, sum_cases), fill = 'red') +
-  ylim(0,max(county_case_data$sum_cases) + 500) +
+  ylim(0,max(county_case_data$sum_cases) + 4000) +
   geom_text(data=subset(county_case_data, month == 'Dec'),aes(x = month, y=sum_cases, label=sum_cases),                   
             position= position_dodge(width=0.9), hjust=-.25, angle = 90, color="red") +
   labs(title = 'Monthly Cases',
@@ -83,7 +83,6 @@ p2 <- ggplot(county_case_data) +
 
 
 
-grid.arrange(p1, p2,p3,p4, nrow=1,top = grid::textGrob("ONONDAGA COUNTY COVID-19 METRICS BY MONTH", x = 0, hjust = 0, gp=gpar(fontsize=15,font=8)),
-             bottom = grid::textGrob('test'))
+grid.arrange(p1, p2,p3,p4, nrow=1,top = grid::textGrob("ONONDAGA COUNTY COVID-19 METRICS BY MONTH", x = 0, hjust = 0, gp=gpar(fontsize=15,font=8)))
 
              
