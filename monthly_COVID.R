@@ -5,14 +5,15 @@ library(grid)
 state_county_COVID <- read.csv("data/State_Onondaga_COVID.csv", stringsAsFactors = FALSE)
 
 monthly_state_county_COVID <- state_county_COVID %>%
-  mutate(month = month(Test.Date, label = TRUE)) %>%
-  group_by(month) %>%
+  mutate(month = month(Test.Date, label = TRUE),
+         year = year(Test.Date)) %>%
+  group_by(month, year) %>%
   summarise(sum_cases = sum(New.Positives),
             sum_tests = sum(Total.Number.of.Tests.Performed))
 
 p1 <-   ggplot(monthly_state_county_COVID,aes(month, sum_tests)) +
   geom_col(fill = 'darkblue') +
-  ylim(0,max(monthly_state_county_COVID$sum_tests) + 25000) +
+  ylim(0,max(monthly_state_county_COVID$sum_tests) + 40000) +
   geom_text(data=subset(monthly_state_county_COVID, month == 'Dec'),aes(x = month, y=sum_tests, label=sum_tests),                   
             position= position_dodge(width=0.9), hjust=-.25, angle = 90, color="darkblue") +
   labs(title = 'Monthly Tests',
@@ -26,8 +27,9 @@ p1 <-   ggplot(monthly_state_county_COVID,aes(month, sum_tests)) +
 hospitalizations <- read.csv("data/Onondaga_County_Hospitalizations.csv", stringsAsFactors = FALSE)
 
 hospitalizations_monthly <- hospitalizations %>%
-  mutate(month = month(Date, label = TRUE)) %>%
-  group_by(month) %>%
+  mutate(month = month(Date, label = TRUE,),
+         year = year(Date)) %>%
+  group_by(month, year) %>%
   summarise(avg_hospitalized = mean(Total.Hospitalized)) 
 
 p3 <- ggplot(hospitalizations_monthly, aes(month, avg_hospitalized)) +

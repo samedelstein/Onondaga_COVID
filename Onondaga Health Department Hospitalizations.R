@@ -5,7 +5,7 @@ library(tidyverse)
 library(data.table)
 
 #County Hospitalizations
-data_list <- read_html('https://datawrapper.dwcdn.net/I4IZD/155/') %>%  #Need to check to see how often url changes
+data_list <- read_html('https://datawrapper.dwcdn.net/I4IZD/163/') %>%  #Need to check to see how often url changes
   html_node(xpath=".//script[contains(., 'visJSON')]") %>% # find the javascript section with the data
   html_text() %>% # get that section
   stri_split_lines() %>% # split into lines so we can target the actual data element
@@ -33,8 +33,9 @@ df %>%
 
 Hospitalizations_per_week_viz <- df %>%
   mutate(Last.7.Days.Mean_County = zoo::rollmean(`Total Hospitalized`, k = 7, fill = NA, align = "right"),
-         week = week(Date)) %>%
-  group_by(week) %>%
+         week = week(Date),
+         year = year(Date)) %>%
+  group_by(week, year) %>%
   summarise(sum_total_hospitalized = sum(`New admissions`)) %>%
   ggplot(aes(week, sum_total_hospitalized)) +
   geom_col(fill = "steelblue") +  
@@ -49,6 +50,7 @@ Hospitalizations_per_week_viz <- df %>%
        x = "",
        y = "Hospitalizations",
        color = '') +
+  facet_wrap(~year) +
   ggthemes::theme_economist() +
   theme(legend.position = "none",
         axis.text.x = element_text(angle = 90)) 
@@ -138,8 +140,9 @@ ggsave("/Users/samedelstein/Onondaga_COVID/visualizations/rolling_hospitalizatio
 
 
 hospitalizations_by_week <- df %>%
-  mutate(week = week(Date)) %>%
-  group_by(week) %>%
+  mutate(week = week(Date),
+         year = year(Date)) %>%
+  group_by(week, year) %>%
   summarise(sum_total_hospitalized = sum(`Total Hospitalized`),
             sum_total_critical_condition = sum(`Total Critical Condition`))
 
@@ -164,6 +167,7 @@ hospitalizations_by_week_viz <-   ggplot(hospitalizations_by_week) +
          color = '') +
   scale_color_manual(values = colors_Total) +
   scale_fill_manual(values = colors_Total)+
+  facet_wrap(~year) +
     ggthemes::theme_economist() +
     theme(axis.text.x = element_text(angle = 90))+
     theme(legend.title = element_blank())

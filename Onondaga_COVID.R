@@ -46,16 +46,19 @@ x <- State_Covid %>%
 write.csv(x, "data/State_Onondaga_COVID.csv", row.names = FALSE)
 
 x %>%
-  mutate(week = week(Test.Date)) %>%
-  group_by(week) %>%
+  mutate(week = week(Test.Date),
+         year = year(Test.Date)) %>%
+  group_by(week,year) %>%
   summarise(sumtests = sum(Total.Number.of.Tests.Performed)) %>%
 ggplot(aes(week, sumtests)) +
-  geom_col()
+  geom_col() +
+  facet_wrap(~year)
 
 
 Percent_positive_by_week_viz <- x %>%
-  mutate(week = week(Test.Date)) %>%
-  group_by(week) %>%
+  mutate(week = week(Test.Date),
+         year = year(Test.Date)) %>%
+  group_by(week, year) %>%
   summarise(case_weekly_total = sum(New.Positives),
             test_weekly_total = sum(Total.Number.of.Tests.Performed),
             weekly_percent_positive = (case_weekly_total/test_weekly_total)*100) %>%
@@ -72,6 +75,7 @@ Percent_positive_by_week_viz <- x %>%
        x = "",
        y = "Percent Positive",
        color = '')  +
+  facet_wrap(~year) +
   ggthemes::theme_economist() +
   theme(axis.text.x = element_text(angle = 90))+
   theme(legend.title = element_blank())
@@ -307,7 +311,8 @@ ggsave("/Users/samedelstein/Onondaga_COVID/visualizations/DaysToReach1000Cases.j
 head(x)
 
 x %>%
-  mutate(month = month(Test.Date)) %>%
-  group_by(month) %>%
+  mutate(month = month(Test.Date),
+         year = year(Test.Date)) %>%
+  group_by(month, year) %>%
   summarise(sum_cases = sum(New.Positives),
             sum_tests = sum(Total.Number.of.Tests.Performed))

@@ -9,7 +9,8 @@ county_case_mapping_old <- read.csv("data/county_case_mapping.csv",stringsAsFact
 
 
 
-county_case_mapping <- fromJSON(paste0("https://services3.arcgis.com/6QuzuucBh0MLJk7u/arcgis/rest/services/Case_mapping_by_municipality_",gsub('(\\D)0', '\\1', format(Sys.Date(), "%B_%d")),"/FeatureServer/1/query?f=json&where=1%3D1&returnGeometry=false&spatialRel=esriSpatialRelIntersects&outFields=*&outSR=102100&resultOffset=0&resultRecordCount=4000&resultType=standard&cacheHint=true")) 
+county_case_mapping <- fromJSON(paste0("https://services3.arcgis.com/6QuzuucBh0MLJk7u/arcgis/rest/services/Case_mapping_by_municipality_",gsub('(\\D)0', '\\1', format(Sys.Date(), "%b_%d")),"/FeatureServer/1/query?f=json&where=1%3D1&returnGeometry=false&spatialRel=esriSpatialRelIntersects&outFields=*&outSR=102100&resultOffset=0&resultRecordCount=4000&resultType=standard&cacheHint=true")) 
+
 county_case_mapping_df <- county_case_mapping$features$attributes
 
 duprows <- rownames(county_case_mapping_old) %in% rownames(county_case_mapping_df)
@@ -89,7 +90,7 @@ DaysToReach1000Cases_County <- ggplot(timeto1000_County, aes(factor(by1000), day
     position = position_dodge(0.9),
     vjust = -.5
   )+ 
-  geom_text(aes(label = as.character(DATE)), color = "white", size = 3, position = position_stack(vjust = 0.5)) + 
+  #geom_text(aes(label = as.character(DATE)), color = "white", size = 3, position = position_stack(vjust = 0.5)) + 
   labs(title = "Days to Reach the Next 1,000 Cases in Onondaga County",
        caption = "Source: covid19.ongov.net/data",
        x = "Thousand Cases",
