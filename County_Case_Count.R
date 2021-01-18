@@ -5,20 +5,22 @@ library(ggrepel)
 library(tidyverse)
 
 
-county_case_mapping_old <- read.csv("data/county_case_mapping.csv",stringsAsFactors = FALSE)
+county_case_mapping_old <- read.csv("data/county_case_mapping.csv",stringsAsFactors = FALSE) %>%
+  mutate(DATE = case_when(CONFIRMED < 20959 ~ ymd(DATE) - years(1),
+                          TRUE ~ ymd(DATE)))
 
 
+county_case_mapping <- fromJSON(paste0("https://services3.arcgis.com/6QuzuucBh0MLJk7u/arcgis/rest/services/Case_mapping_by_municipality_",gsub('(\\D)0', '\\1', format(Sys.Date(), "%B_%d")),"/FeatureServer/1/query?f=json&where=1%3D1&returnGeometry=false&spatialRel=esriSpatialRelIntersects&outFields=*&outSR=102100&resultOffset=0&resultRecordCount=4000&resultType=standard&cacheHint=true")) 
 
-county_case_mapping <- fromJSON(paste0("https://services3.arcgis.com/6QuzuucBh0MLJk7u/arcgis/rest/services/Case_mapping_by_municipality_",gsub('(\\D)0', '\\1', format(Sys.Date(), "%b_%d")),"/FeatureServer/1/query?f=json&where=1%3D1&returnGeometry=false&spatialRel=esriSpatialRelIntersects&outFields=*&outSR=102100&resultOffset=0&resultRecordCount=4000&resultType=standard&cacheHint=true")) 
-
-county_case_mapping_df <- county_case_mapping$features$attributes
+county_case_mapping_df <- county_case_mapping$features$attributes %>%
+  mutate(DATE = case_when(CONFIRMED < 20959 ~ as.Date(paste0(DATE, '-', 2020), '%B%d-%Y'),
+                          TRUE ~ as.Date(paste0(DATE, '-', 2021), '%B%d-%Y')))
 
 duprows <- rownames(county_case_mapping_old) %in% rownames(county_case_mapping_df)
 county_case_mapping_df_new <- data.frame(rbind(county_case_mapping_df, county_case_mapping_old[!duprows,]))
 county_case_mapping_df_new <- county_case_mapping_df_new %>% 
   mutate(new_cases = CONFIRMED - lag(CONFIRMED,1),
-         new_deaths = DEATHS - lag(DEATHS,1),
-         DATE = as.Date(paste0(county_case_mapping_df_new$DATE, '-', year(Sys.Date())), '%B%d-%Y'))
+         new_deaths = DEATHS - lag(DEATHS,1))
 write.csv(county_case_mapping_df_new, "data/county_case_mapping.csv", row.names = FALSE)
 
 county_case_mapping_df_new %>%
