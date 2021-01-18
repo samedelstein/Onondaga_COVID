@@ -1,3 +1,8 @@
+#11/23/2020 Orange Zone restrictions for restaurants go into effect
+#1/14/2021 Orange Zone restrictions for restaurants lifted
+#12/21/2020 SCSD Schools go remote
+#1/19/2021 SCSD schools back in person
+
 library(lubridate)
 library(jsonlite)
 library(RCurl)
