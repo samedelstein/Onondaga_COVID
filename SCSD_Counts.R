@@ -139,3 +139,7 @@ positiveHistoryNew <- SCSD_Counts$positiveHistory
 positiveHistoryOldNew <- rbind(positiveHistory, positiveHistoryNew)
 positiveHistory_tosave = positiveHistoryOldNew[!duplicated(positiveHistoryOldNew$date),]
 write.csv(positiveHistory_tosave, 'data/positiveHistory.csv',row.names = FALSE)
+
+positiveHistory_tosave %>%
+  mutate(Date = as.Date(date, '%b %d, %Y %H:%M:%S')) %>%
+  arrange(Date)
