@@ -241,8 +241,8 @@ Per.100000 <- ggplot(x) +
   theme(axis.text.x = element_text(angle = 90))
 ggsave("/Users/samedelstein/Onondaga_COVID/visualizations/Positive Cases per 100,000 People in Onondaga County.jpg", plot = Per.100000, width = 10, height = 7)
 
-write.csv(x, "data/Onondaga_COVID_data.csv", row.names = FALSE)
-
+write.csv(x, "data/Onondaga_COVID_data.csv", row.names = FALSE,fileEncoding = "UTF-8")
+str(x)
 cuts <- data.frame(Ref = c("SU Students Return", "County In-Person &\n SCSD Remote Schooling \nStart", "SCSD Hybrid \nLearning Starts", "Halloween", 'Thanksgiving'),
                    vals = c(as.Date('2020-08-17'),as.Date('2020-09-14'), as.Date('2020-10-05'), as.Date('2020-10-31'), as.Date('2020-11-26')),
                    yvals = c(100,50,100,200,220),
