@@ -205,10 +205,12 @@ colors_Positives <- c(
   'Rolling.7.Day.Positives' = '#fdae61',
   'New.Daily.Positives' = '#7b3294')
 
+
+
 Rolling.7.Day <- ggplot(x) +
-  geom_col(aes(Test.Date, New.Positives, group = 1, fill='New.Daily.Positives')) +
-  geom_line(aes(Test.Date, Last.7.Days.Mean, group = 1, color = 'Rolling.7.Day.Positives'), size = 2) +
-  geom_hline(aes(yintercept = max(Last.7.Days.Mean, na.rm = TRUE)), alpha = .5, color = 'red', linetype = 'dashed') +
+  geom_col(aes(Test.Date, New.Positives, group = 1, fill='New.Daily.Positives'), alpha = .5) +
+  geom_line(aes(Test.Date, Last.7.Days.Mean, group = 1, color = 'Rolling.7.Day.Positives'), size = 1) +
+  geom_hline(aes(yintercept = Last.7.Days.Mean[Test.Date == max(Test.Date)]), alpha = 1, color = 'red', linetype = 'dashed') +
   labs(title = "Positive Tests in Onondaga County with Rolling Average",
        subtitle = paste("Data as of", max(x$Test.Date), sep = " "),
        caption = "Source: data.ny.gov",
@@ -224,7 +226,7 @@ Rolling.7.Day <- ggplot(x) +
 ggsave("/Users/samedelstein/Onondaga_COVID/visualizations/Positive Tests in Onondaga County with Rolling Average.jpg", plot = Rolling.7.Day, width = 10, height = 7)
 
 Per.100000 <- ggplot(x) +
-  geom_hline(aes(yintercept = 10), alpha = .7, color = 'red', linetype = 'dashed') +
+  geom_hline(aes(yintercept = Positive.Per.100000[Test.Date == max(Test.Date)]), alpha = .7, color = 'red', linetype = 'dashed') +
   geom_line(aes(Test.Date, Positive.Per.100000, group = 1)) +
   ggthemes::theme_economist() +
   theme(axis.text.x = element_text(angle = 90)) +
