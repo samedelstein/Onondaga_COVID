@@ -2,6 +2,7 @@
 #Weekday Test and Cases
 x %>%
   select(Test.Date, New.Positives,Roll.Last.7.Days.Cases,Roll.Last.7.Days.Tests,Total.Number.of.Tests.Performed) %>%
+  filter(Test.Date >= '2021-03-01') %>%
   mutate(weekday = weekdays(Test.Date),
          percent_diff_cases = ((Roll.Last.7.Days.Cases - New.Positives)/((Roll.Last.7.Days.Cases + New.Positives)/2))*100,
          percent_diff_tests = ((Roll.Last.7.Days.Tests - Total.Number.of.Tests.Performed)/((Roll.Last.7.Days.Tests + Total.Number.of.Tests.Performed)/2))*100,

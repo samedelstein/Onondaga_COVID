@@ -4,6 +4,7 @@ library(ggplot2)
 library(gridExtra)
 library(zoo)
 library(ggthemes)
+library(lubridate)
 
 State_Covid <- read.csv("https://health.data.ny.gov/api/views/xdss-u53e/rows.csv?accessType=DOWNLOAD", stringsAsFactors = FALSE)
 
